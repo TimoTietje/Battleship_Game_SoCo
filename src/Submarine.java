@@ -1,2 +1,2 @@
-package PACKAGE_NAME;public class Submarine {
+public class Submarine {
 }
