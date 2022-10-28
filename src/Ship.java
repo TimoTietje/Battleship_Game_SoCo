@@ -1,4 +1,4 @@
 public abstract class Ship {
-    private int Length;
-    private Coordinate StartCoordinate;
+    private int length;
+    private Coordinate startCoordinate;
 }

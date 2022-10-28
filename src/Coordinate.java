@@ -1,18 +1,18 @@
 public class Coordinate {
-    private int X;
-    private int Y;
+    private int x;
+    private int y;
     // Constructor
     public Coordinate(int x, int y){
-        X = x;
-        Y = y;
+        this.x = x;
+        this.y = y;
     }
 
     public int getX() {
-        return X;
+        return x;
     }
 
     public int getY() {
-        return Y;
+        return y;
     }
     /* I think this class doesn't need setter methods,
     you only need to set the ship once (when you create them) */
