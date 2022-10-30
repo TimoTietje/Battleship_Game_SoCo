@@ -1,14 +1,17 @@
 public class Battleship_Game {
+    private  Board theBoard;
+    private Player humanPlayer;
+    private Player computerPlayer;
     public Battleship_Game() {
-        Board theBoard = new Board();
-        Player humanPlayer = new Player();
-        Player computerPlayer = new Player();
+        theBoard = new Board();
+        humanPlayer = new Player();
+        computerPlayer = new Player();
 
-        setUpGame(theBoard);
+        setUpGame();
     }
-    private void setUpGame(Board aBoard){
+    private void setUpGame(){
         /* When the game starts, the program outputs the empty
         ocean grid and target grids.*/
-        aBoard.printBoard();
+        theBoard.printBoard();
     }
 }
