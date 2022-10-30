@@ -25,7 +25,7 @@ public class Board {
         }
         System.out.println(" +-+-+-+-+-+-+-+-+-+-+ ");
         System.out.println("  A B C D E F G H I J  ");
-        System.out.println("=======================");
+        System.out.print("=======================");
 
         System.out.print("\n\n-----------------------\n\n");
 
