@@ -5,6 +5,7 @@ public class Main {
         Player humanPlayer = new Player();
         Player computerPlayer = new Player();
 
+        theBoard.printBoard();
 
     }
 }
