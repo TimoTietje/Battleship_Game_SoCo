@@ -4,8 +4,8 @@ public class Battleship_Game {
     private Player computerPlayer;
     public Battleship_Game() {
         theBoard = new Board();
-        humanPlayer = new Player();
-        computerPlayer = new Player();
+        humanPlayer = new Player(true);
+        computerPlayer = new Player(false);
 
         setUpGame();
     }
@@ -13,5 +13,7 @@ public class Battleship_Game {
         /* When the game starts, the program outputs the empty
         ocean grid and target grids.*/
         theBoard.printBoard();
+        humanPlayer.setShips();
+
     }
 }
