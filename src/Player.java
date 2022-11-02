@@ -1,14 +1,18 @@
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Player {
     private boolean isHuman;
+
     public Player(boolean isHuman) {
         this.isHuman = isHuman;
     }
-    public void setShips(){
-        if(isHuman){
+
+    public void setShips() {
+        if (isHuman) {
             humanSetShips();
-        }else{
+        } else {
             computerSetShips();
         }
     }
@@ -23,15 +27,49 @@ public class Player {
          boat in their fleet, one by one. The user inputs the starting
          block and the ending block as capitalized characters and numbers,
          separated by a comma e.g. A1,B3 */
-        Scanner sc = new Scanner(System.in);
-        String input;
-        boolean inputIsValid = false;
-        while(!inputIsValid){
-            System.out.println("Give the start and end coordinate of the position " +
-                    "of your Carrier (length: 6) e.g. A1,A6");
-            input = sc.next();
 
-            /* CONTINUE HERE BY CHECKING WHETHER THE INPUT IS VALID */
+        /* CONTINUE HERE BY CHECKING WHETHER THE INPUT IS VALID */
+
+        Scanner input = new Scanner(System.in);
+
+        String validlines = "ABCDEFGHIJ";
+
+        List<String> ships = Arrays.asList("Carrier (Length: 6)", "Battleship (Length: 4)",
+                "Submarine (Length: 3)", "Patrol Boat (Length: 2)");
+        List<Integer> amount = Arrays.asList(1, 2, 3, 4);
+        int idx = 0;
+        int i;
+
+        System.out.println("Deploy your ships");
+        for (i = 1; i <= amount.get(idx); ) {
+            System.out.println("Enter Coordinates for your " + ships.get(idx));
+            System.out.println("Start Coordinate");
+            String start = input.next();
+            System.out.println("End Coordinate");
+            String end = input.next();
+
+            if (start.length() == 2 && end.length() == 2) {
+                char line1 = start.charAt(0); char line2 = end.charAt(0);
+                int col1 = Character.getNumericValue(start.charAt(1));
+                int col2 = Character.getNumericValue(end.charAt(1));
+
+                if (validlines.indexOf(line1) != -1 && validlines.indexOf(line2) != -1 &&
+                        col1 >= 0 && col1 <= 9 && col2 >= 0 && col2 <= 9
+                        /*how to connect with humanTargetGrid?
+                        (grid[line1][col1] == " ") && (grid[line2][col2] == " ")*/) {
+
+                    /*CHECK IF COORDINATES = LENGTH OF SPECIFIC SHIP*/
+                    /* SAFE COORDINATES IN GRID*/
+
+                    if (i < amount.get(idx)) {i++;}
+                    else if (idx < 4) {i = 1; idx++;}
+                    else {break;}
+                }
+            }
+            else {
+                System.out.println("Input is invalid. Try again");
+                continue;
+            }
         }
     }
 }
