@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -59,6 +60,50 @@ public class Player {
                         (grid[line1][col1] == " ") && (grid[line2][col2] == " ")*/) {
 
                     /*CHECK IF COORDINATES = LENGTH OF SPECIFIC SHIP*/
+                    /*When ship is placed vertically*/
+                    if (line1 == line2) {
+                        int length = Math.abs(col1-col2) + 1;
+                        if (idx == 0 && length != 6) {
+                            System.out.println("Length of your ship should be 6. Try Again");
+                            continue;
+                        }
+                        if (idx == 1 && length != 4) {
+                            System.out.println("Length of your ship should be 4. Try Again");
+                            continue;
+                        }
+                        if (idx == 2 && length != 3) {
+                            System.out.println("Length of your ship should be 3. Try Again");
+                            continue;
+                        }
+                        if (idx == 3 && length != 2) {
+                            System.out.println("Length of your ship should be 2. Try Again");
+                            continue;
+                        }
+                    }
+                    /*when ship is placed horizontally*/
+                    if (col1 == col2) {
+                        int len1 = validlines.indexOf(line1);
+                        int len2 = validlines.indexOf(line2);
+                        int length = Math.abs(len1 - len2) + 1;
+
+                        if (idx == 0 && length != 6) {
+                            System.out.println("Length of your ship should be 6. Try Again");
+                            continue;
+                        }
+                        if (idx == 1 && length != 4) {
+                            System.out.println("Length of your ship should be 4. Try Again");
+                            continue;
+                        }
+                        if (idx == 2 && length != 3) {
+                            System.out.println("Length of your ship should be 3. Try Again");
+                            continue;
+                        }
+                        if (idx == 3 && length != 2) {
+                            System.out.println("Length of your ship should be 2. Try Again");
+                            continue;
+                        }
+                    }
+
                     /* SAFE COORDINATES IN GRID*/
                     /*test*/
 
