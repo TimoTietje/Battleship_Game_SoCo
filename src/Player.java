@@ -50,19 +50,19 @@ public class Player {
             String end = input.next();
 
             if (start.length() == 2 && end.length() == 2) {
-                char line1 = start.charAt(0); char line2 = end.charAt(0);
-                int col1 = Character.getNumericValue(start.charAt(1));
-                int col2 = Character.getNumericValue(end.charAt(1));
+                char col1 = start.charAt(0); char col2 = end.charAt(0);
+                int line1 = Character.getNumericValue(start.charAt(1));
+                int line2 = Character.getNumericValue(end.charAt(1));
 
-                if (validlines.indexOf(line1) != -1 && validlines.indexOf(line2) != -1 &&
-                        col1 >= 0 && col1 <= 9 && col2 >= 0 && col2 <= 9
+                if (validlines.indexOf(col1) != -1 && validlines.indexOf(col2) != -1 &&
+                        line1 >= 0 && line1 <= 9 && line2 >= 0 && line2 <= 9
                         /*how to connect with humanTargetGrid?
-                        (grid[line1][col1] == " ") && (grid[line2][col2] == " ")*/) {
+                        (grid[col1][line1] == " ") && (grid[col2][line2] == " ")*/) {
 
                     /*CHECK IF COORDINATES = LENGTH OF SPECIFIC SHIP*/
                     /*When ship is placed vertically*/
-                    if (line1 == line2) {
-                        int length = Math.abs(col1-col2) + 1;
+                    if (col1 == col2) {
+                        int length = Math.abs(line1-line2) + 1;
                         if (idx == 0 && length != 6) {
                             System.out.println("Length of your ship should be 6. Try Again");
                             continue;
@@ -81,9 +81,9 @@ public class Player {
                         }
                     }
                     /*when ship is placed horizontally*/
-                    if (col1 == col2) {
-                        int len1 = validlines.indexOf(line1);
-                        int len2 = validlines.indexOf(line2);
+                    else if (line1 == line2) {
+                        int len1 = validlines.indexOf(col1);
+                        int len2 = validlines.indexOf(col2);
                         int length = Math.abs(len1 - len2) + 1;
 
                         if (idx == 0 && length != 6) {
@@ -103,9 +103,13 @@ public class Player {
                             continue;
                         }
                     }
+                    else {System.out.println("You can set your ships only horizontally or vertically. Try again");continue;}
 
                     /* SAFE COORDINATES IN GRID*/
-                    /*test*/
+                    /*initialize ships with given coordinates*/
+                    /*create Instance of Class Carrier*/
+                    /*if (idx == 0) {Carrier(6,)}*/
+
 
                     if (i < amount.get(idx)) {i++;}
                     else if (idx < 4) {i = 1; idx++;}
