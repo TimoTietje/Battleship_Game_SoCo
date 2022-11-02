@@ -60,6 +60,7 @@ public class Player {
 
                     /*CHECK IF COORDINATES = LENGTH OF SPECIFIC SHIP*/
                     /* SAFE COORDINATES IN GRID*/
+                    /*test*/
 
                     if (i < amount.get(idx)) {i++;}
                     else if (idx < 4) {i = 1; idx++;}
