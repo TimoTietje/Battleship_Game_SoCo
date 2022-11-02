@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Player {
     private boolean isHuman;
@@ -17,10 +18,67 @@ public class Player {
             computerSetShips();
         }
     }
-
-    private void computerSetShips() {
+    //pre: line,col,directions, length are of type integer
+    //post: ship position is valid or not
+    private boolean is_Valid(int line, int col, int direction, int length){
+        //test if position (line, col) is on grid 0 <= col,line < 10
+        if((col > 10 || col < 0) || (line > 10 || line < 0)){
+            return false;
+        }
+        //north
+        if(direction == 0){
+            if(line - length < 0){
+                return false;
+            }
+        }
+        //east
+        if(direction == 1){
+            if(col + length >= 10){
+                return false;
+            }
+        }
+        //south
+        if(direction == 2){
+            if(line + length >= 10){
+                return false;
+            }
+        }
+        //west
+        if(direction == 3){
+            if(col - length < 0){
+                return false;
+            }
+        }
+        return true;
     }
 
+    private void computerSetShips() {
+        // generate random input
+        Random rand = new Random(); //we need rand to create random numbers
+        int grid_length = 10;
+        int[] amount_of_ships = {1, 2, 3, 4}; //the amount of each ship
+        int[] ship_lengths = {6,4,3,2}; //to get ship length of amount_of_ships[index]
+        int index = 0; //index operate on amount_of_ships and ship_lengths, because
+        //each position matches in amount of ship and length
+        while(index<4) {
+            //generate random col, line & direction
+            int col = rand.nextInt(grid_length);
+            int line = rand.nextInt(grid_length);
+            int direction = rand.nextInt(4); //4 directions possible 0 == North & clockwise
+            //validate  input
+            if(is_Valid(line, col, direction, ship_lengths[index])){
+                //reduce the amount of ships that has to be set
+                amount_of_ships[index]--;
+                //TO DO
+                //setShiponGrid(line, col, direction, ship_lengths[index]);
+            }
+            if(amount_of_ships[index] == 0){
+                index++;
+            }
+        }
+    }
+
+    //search for similarities between computerSetShips and humanSetShips to merge
     private void humanSetShips() {
         /* Human player must place 1x Carrier (length: 6), 2x Battleship (length: 4,
          3x Submarine (length: 3), 4x Patrol boat (length: 2).
