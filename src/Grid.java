@@ -16,6 +16,7 @@ public class Grid {
                                         {' ',' ',' ',' ',' ',' ',' ',' ',' ',' '}};
     }
 
-
-
+    public char getCoordinateValue(int x, int y) {
+        return coordinateSystem[x][y];
+    }
 }
