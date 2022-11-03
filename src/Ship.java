@@ -13,7 +13,7 @@ public abstract class Ship {
 
     /* create list with all positions of ship in it */
     protected List<Coordinate> createCoordinateList(Coordinate startCoordinate, Coordinate endCoordinate, int length){
-        List<Coordinate> coordinateList = new ArrayList<Coordinate>();
+        coordinateList = new ArrayList<Coordinate>();
         String validlines = "ABCDEFGHIJ";
 
         /* check if boat is placed horizontal and create list of coordinates */
