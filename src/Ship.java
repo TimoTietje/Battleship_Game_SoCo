@@ -40,7 +40,7 @@ public abstract class Ship {
         if (ship.coordinateList.contains(shot)){
             ship.coordinateList.remove(shot);
             return true;
-            /* !!!if returns true, check if ship has been sunk!!! */
+            /* !!!if true is returned, check if ship has been sunk!!! */
         }
         return false;
     }
@@ -52,5 +52,4 @@ public abstract class Ship {
         }
         return ship.isSunk;
     }
-
 }

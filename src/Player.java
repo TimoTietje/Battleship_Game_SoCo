@@ -162,9 +162,28 @@ public class Player {
                     else {System.out.println("You can set your ships only horizontally or vertically. Try again");continue;}
 
                     /* SAFE COORDINATES IN GRID*/
+
+
                     /*initialize ships with given coordinates*/
                     /*create Instance of Class Carrier*/
-                    /*if (idx == 0) {Carrier(6,)}*/
+                    int start_xpos = validlines.indexOf(start.charAt(0));
+                    int end_xpos = validlines.indexOf(end.charAt(0));
+                    String s = Integer.toString(i); // This method with the object naming does not work (e.g. carrier+s)
+
+                    if (idx == 0) {
+                        public Carrier carrier+i = new Carrier(start_xpos, line1, end_xpos, line2);
+                    }
+                    if (idx == 1) {
+                        public Battleship battleship+s = new Carrier(start_xpos, line1, end_xpos, line2);
+                    }
+                    if (idx == 2) {
+                        public Submarine submarine+s = new Carrier(start_xpos, line1, end_xpos, line2);
+                    }
+                    if (idx == 3) {
+                        public PatrolBoat patrolBoat+s = new Carrier(start_xpos, line1, end_xpos, line2);
+                    }
+
+
 
 
                     if (i < amount.get(idx)) {i++;}

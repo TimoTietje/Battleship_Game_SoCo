@@ -2,7 +2,6 @@ import java.util.List;
 
 public class Carrier extends Ship {
 
-
     public Carrier(int start_x, int start_y, int end_x, int end_y){
         int length = 6;
         boolean isSunk = false;
