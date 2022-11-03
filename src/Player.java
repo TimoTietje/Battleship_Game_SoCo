@@ -87,8 +87,6 @@ public class Player {
          block and the ending block as capitalized characters and numbers,
          separated by a comma e.g. A1,B3 */
 
-        /* CONTINUE HERE BY CHECKING WHETHER THE INPUT IS VALID */
-
         Scanner input = new Scanner(System.in);
 
         String validlines = "ABCDEFGHIJ";

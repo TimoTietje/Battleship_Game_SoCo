@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="method humanSetShips with valid input check">
+    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="correct humansetships&#10;add private endCoordinate to ship method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Carrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Carrier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ship.java" afterDir="false" />
     </list>
@@ -63,7 +62,8 @@
       <updated>1666951562659</updated>
       <workItem from="1667289128239" duration="1504000" />
       <workItem from="1667313050152" duration="15639000" />
-      <workItem from="1667371404818" duration="10198000" />
+      <workItem from="1667371404818" duration="11355000" />
+      <workItem from="1667460389060" duration="3302000" />
     </task>
     <task id="LOCAL-00001" summary="method humanSetShips with valid input check">
       <created>1667375863680</created>
@@ -79,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667393903734</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="correct humansetships&#10;add private endCoordinate to ship method">
+      <created>1667421212328</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1667421212328</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +113,7 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="method humanSetShips with valid input check" />
-    <option name="LAST_COMMIT_MESSAGE" value="method humanSetShips with valid input check" />
+    <MESSAGE value="correct humansetships&#10;add private endCoordinate to ship method" />
+    <option name="LAST_COMMIT_MESSAGE" value="correct humansetships&#10;add private endCoordinate to ship method" />
   </component>
 </project>
