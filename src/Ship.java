@@ -52,4 +52,8 @@ public abstract class Ship {
         }
         return ship.isSunk;
     }
+
+    public List<Coordinate> getCoordinateList() {
+        return coordinateList;
+    }
 }
