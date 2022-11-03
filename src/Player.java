@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Random;
 
 public class Player {
     private boolean isHuman;
@@ -17,10 +18,67 @@ public class Player {
             computerSetShips();
         }
     }
-
-    private void computerSetShips() {
+    //pre: line,col,directions, length are of type integer
+    //post: ship position is valid or not
+    private boolean is_Valid(int line, int col, int direction, int length){
+        //test if position (line, col) is on grid 0 <= col,line < 10
+        if((col > 10 || col < 0) || (line > 10 || line < 0)){
+            return false;
+        }
+        //north
+        if(direction == 0){
+            if(line - length < 0){
+                return false;
+            }
+        }
+        //east
+        if(direction == 1){
+            if(col + length >= 10){
+                return false;
+            }
+        }
+        //south
+        if(direction == 2){
+            if(line + length >= 10){
+                return false;
+            }
+        }
+        //west
+        if(direction == 3){
+            if(col - length < 0){
+                return false;
+            }
+        }
+        return true;
     }
 
+    private void computerSetShips() {
+        // generate random input
+        Random rand = new Random(); //we need rand to create random numbers
+        int grid_length = 10;
+        int[] amount_of_ships = {1, 2, 3, 4}; //the amount of each ship
+        int[] ship_lengths = {6,4,3,2}; //to get ship length of amount_of_ships[index]
+        int index = 0; //index operate on amount_of_ships and ship_lengths, because
+        //each position matches in amount of ship and length
+        while(index<4) {
+            //generate random col, line & direction
+            int col = rand.nextInt(grid_length);
+            int line = rand.nextInt(grid_length);
+            int direction = rand.nextInt(4); //4 directions possible 0 == North & clockwise
+            //validate  input
+            if(is_Valid(line, col, direction, ship_lengths[index])){
+                //reduce the amount of ships that has to be set
+                amount_of_ships[index]--;
+                //TO DO
+                //setShiponGrid(line, col, direction, ship_lengths[index]);
+            }
+            if(amount_of_ships[index] == 0){
+                index++;
+            }
+        }
+    }
+
+    //search for similarities between computerSetShips and humanSetShips to merge
     private void humanSetShips() {
         /* Human player must place 1x Carrier (length: 6), 2x Battleship (length: 4,
          3x Submarine (length: 3), 4x Patrol boat (length: 2).
@@ -28,8 +86,6 @@ public class Player {
          boat in their fleet, one by one. The user inputs the starting
          block and the ending block as capitalized characters and numbers,
          separated by a comma e.g. A1,B3 */
-
-        /* CONTINUE HERE BY CHECKING WHETHER THE INPUT IS VALID */
 
         Scanner input = new Scanner(System.in);
 
@@ -50,19 +106,19 @@ public class Player {
             String end = input.next();
 
             if (start.length() == 2 && end.length() == 2) {
-                char line1 = start.charAt(0); char line2 = end.charAt(0);
-                int col1 = Character.getNumericValue(start.charAt(1));
-                int col2 = Character.getNumericValue(end.charAt(1));
+                char col1 = start.charAt(0); char col2 = end.charAt(0);
+                int line1 = Character.getNumericValue(start.charAt(1));
+                int line2 = Character.getNumericValue(end.charAt(1));
 
-                if (validlines.indexOf(line1) != -1 && validlines.indexOf(line2) != -1 &&
-                        col1 >= 0 && col1 <= 9 && col2 >= 0 && col2 <= 9
+                if (validlines.indexOf(col1) != -1 && validlines.indexOf(col2) != -1 &&
+                        line1 >= 0 && line1 <= 9 && line2 >= 0 && line2 <= 9
                         /*how to connect with humanTargetGrid?
-                        (grid[line1][col1] == " ") && (grid[line2][col2] == " ")*/) {
+                        (grid[col1][line1] == " ") && (grid[col2][line2] == " ")*/) {
 
                     /*CHECK IF COORDINATES = LENGTH OF SPECIFIC SHIP*/
                     /*When ship is placed vertically*/
-                    if (line1 == line2) {
-                        int length = Math.abs(col1-col2) + 1;
+                    if (col1 == col2) {
+                        int length = Math.abs(line1-line2) + 1;
                         if (idx == 0 && length != 6) {
                             System.out.println("Length of your ship should be 6. Try Again");
                             continue;
@@ -81,9 +137,9 @@ public class Player {
                         }
                     }
                     /*when ship is placed horizontally*/
-                    if (col1 == col2) {
-                        int len1 = validlines.indexOf(line1);
-                        int len2 = validlines.indexOf(line2);
+                    else if (line1 == line2) {
+                        int len1 = validlines.indexOf(col1);
+                        int len2 = validlines.indexOf(col2);
                         int length = Math.abs(len1 - len2) + 1;
 
                         if (idx == 0 && length != 6) {
@@ -103,9 +159,13 @@ public class Player {
                             continue;
                         }
                     }
+                    else {System.out.println("You can set your ships only horizontally or vertically. Try again");continue;}
 
                     /* SAFE COORDINATES IN GRID*/
-                    /*test*/
+                    /*initialize ships with given coordinates*/
+                    /*create Instance of Class Carrier*/
+                    /*if (idx == 0) {Carrier(6,)}*/
+
 
                     if (i < amount.get(idx)) {i++;}
                     else if (idx < 4) {i = 1; idx++;}
