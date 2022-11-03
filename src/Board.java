@@ -46,4 +46,8 @@ public class Board {
         System.out.println("  A B C D E F G H I J  ");
         System.out.println("=======================");
     }
+
+    public Grid getHumanOceanGrid() {
+        return humanOceanGrid;
+    }
 }

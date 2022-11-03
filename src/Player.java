@@ -1,8 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Random;
+import java.util.*;
 
 public class Player {
     private boolean isHuman;
@@ -11,9 +7,9 @@ public class Player {
         this.isHuman = isHuman;
     }
 
-    public void setShips() {
+    public void setShips(Grid aGrid) {
         if (isHuman) {
-            humanSetShips();
+            humanSetShips(aGrid);
         } else {
             computerSetShips();
         }
@@ -79,7 +75,7 @@ public class Player {
     }
 
     //search for similarities between computerSetShips and humanSetShips to merge
-    private void humanSetShips() {
+    private void humanSetShips(Grid aGrid) {
         /* Human player must place 1x Carrier (length: 6), 2x Battleship (length: 4,
          3x Submarine (length: 3), 4x Patrol boat (length: 2).
          The game then asks the human player where they want to place each
@@ -169,23 +165,24 @@ public class Player {
                     int start_xpos = validlines.indexOf(start.charAt(0));
                     int end_xpos = validlines.indexOf(end.charAt(0));
                     String s = Integer.toString(i); // This method with the object naming does not work (e.g. carrier+s)
-
+                    ArrayList<Ship>[] shipList = new ArrayList[]{new ArrayList<Ship>(), new ArrayList<Ship>(), new ArrayList<Ship>(), new ArrayList<Ship>()};   // This array stores one ArrayList for each type of ship
                     if (idx == 0) {
-                        public Carrier carrier+i = new Carrier(start_xpos, line1, end_xpos, line2);
+                        shipList[idx].add(new Carrier(start_xpos, line1, end_xpos, line2));
                     }
                     if (idx == 1) {
-                        public Battleship battleship+s = new Carrier(start_xpos, line1, end_xpos, line2);
+                        shipList[idx].add(new Battleship(start_xpos, line1, end_xpos, line2));
                     }
                     if (idx == 2) {
-                        public Submarine submarine+s = new Carrier(start_xpos, line1, end_xpos, line2);
+                        shipList[idx].add(new Submarine(start_xpos, line1, end_xpos, line2));
                     }
                     if (idx == 3) {
-                        public PatrolBoat patrolBoat+s = new Carrier(start_xpos, line1, end_xpos, line2);
+                        shipList[idx].add(new PatrolBoat(start_xpos, line1, end_xpos, line2));
                     }
 
 
+                    aGrid.setShipList(shipList);    // Save the ships in the ocean grid of the player in the Battleship_Game class
 
-
+                    // What is the following code doing?
                     if (i < amount.get(idx)) {i++;}
                     else if (idx < 4) {i = 1; idx++;}
                     else {break;}

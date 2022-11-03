@@ -13,7 +13,7 @@ public class Battleship_Game {
         /* When the game starts, the program outputs the empty
         ocean grid and target grids.*/
         theBoard.printBoard();
-        humanPlayer.setShips();
+        humanPlayer.setShips(theBoard.getHumanOceanGrid());
 
     }
 }
