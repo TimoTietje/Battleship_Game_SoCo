@@ -19,7 +19,8 @@ public class Board {
             System.out.print(i);
             System.out.print('|');
             for(int j = 0; j < 10; j++){
-                System.out.print(" |");
+                System.out.print(humanTargetGrid.getCoordinateValue(i, j));
+                System.out.print("|");
             }
             System.out.println(i);
         }
@@ -36,7 +37,8 @@ public class Board {
             System.out.print(i);
             System.out.print('|');
             for(int j = 0; j < 10; j++){
-                System.out.print(" |");
+                System.out.print(humanOceanGrid.getCoordinateValue(i, j));
+                System.out.print("|");
             }
             System.out.println(i);
         }
