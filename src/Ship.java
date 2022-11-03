@@ -1,41 +1,56 @@
-import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public abstract class Ship {
+    private String type;
     private int length;
+    private boolean isSunk;
     private Coordinate startCoordinate;
     private Coordinate endCoordinate;
-    public boolean isSunk;
+    private List<Coordinate> coordinateList;
 
 
-    /* to check after hit if ship is destroyed and change status */
-    public void check_is_sunk(String name){
-        /* if all coordinates of ship are hit, set is_destroyed to True */
-    }
-
-    private Coordinate[] createCoordinateList(Coordinate startCoordinate, Coordinate endCoordinate, int length){
-        Coordinate[] coordinateList = new Coordinate[length];
+    /* create list with all positions of ship in it */
+    protected List<Coordinate> createCoordinateList(Coordinate startCoordinate, Coordinate endCoordinate, int length){
+        List<Coordinate> coordinateList = new ArrayList<Coordinate>();
         String validlines = "ABCDEFGHIJ";
 
         /* check if boat is placed horizontal and create list of coordinates */
         if (startCoordinate.getX()  == endCoordinate.getX()){
-            int pos_lst = 0;
             int index = validlines.indexOf(startCoordinate.getX());
             for (int i = startCoordinate.getY(); i <= endCoordinate.getY(); i++) {
-                coordinateList[pos_lst] = new Coordinate(index, i);
-                pos_lst += 1;
+                coordinateList.add(new Coordinate(index, i));
             }
         }
 
         /* creat list of coordinates with vertical placed boat */
         else{
-            int pos_lst = 0;
             int index_start = validlines.indexOf(startCoordinate.getX());
             for (int i = index_start; i <= index_start+length; i++){
-                coordinateList[pos_lst] = new Coordinate(i, startCoordinate.getY());
-                pos_lst += 1;
+                coordinateList.add(new Coordinate(i, startCoordinate.getY()));
             }
         }
 
         return coordinateList;
     }
+
+    /* check if shot is a hit */
+    public boolean isShipHit(Ship ship, Coordinate shot){
+        if (ship.coordinateList.contains(shot)){
+            ship.coordinateList.remove(shot);
+            return true;
+            /* !!!if returns true, check if ship has been sunk!!! */
+        }
+        return false;
+    }
+
+    /* to check after hit if ship is destroyed and change status */
+    public boolean ship_status(Ship ship){
+        if (ship.coordinateList.size() == 0){
+            ship.isSunk = true;
+        }
+        return ship.isSunk;
+    }
+
 }
