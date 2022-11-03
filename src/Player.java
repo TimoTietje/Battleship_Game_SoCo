@@ -92,6 +92,9 @@ public class Player {
         List<Integer> amount = Arrays.asList(1, 2, 3, 4);
         int idx = 0;
         int i;
+        /* This variable stores the entered ships and passes them to the grid to save them.
+        * Each ship type is saved in a seperate nested ArrayList. */
+        ArrayList<Ship>[] shipList = new ArrayList[]{new ArrayList<Ship>(), new ArrayList<Ship>(), new ArrayList<Ship>(), new ArrayList<Ship>()};
 
         System.out.println("Deploy your ships");
         for (i = 1; i <= amount.get(idx); ) {
@@ -164,7 +167,6 @@ public class Player {
                     /*create Instance of Class Carrier*/
                     int start_xpos = validlines.indexOf(start.charAt(0));
                     int end_xpos = validlines.indexOf(end.charAt(0));
-                    ArrayList<Ship>[] shipList = new ArrayList[]{new ArrayList<Ship>(), new ArrayList<Ship>(), new ArrayList<Ship>(), new ArrayList<Ship>()};   // This array stores one ArrayList for each type of ship
                     if (idx == 0) {
                         shipList[idx].add(new Carrier(start_xpos, line1, end_xpos, line2));
                     }
@@ -179,8 +181,6 @@ public class Player {
                     }
 
 
-                    aGrid.setShipList(shipList);    // Save the ships in the ocean grid of the player in the Battleship_Game class
-
                     // What is the following code doing?
                     if (i < amount.get(idx)) {i++;}
                     else if (idx < 4) {i = 1; idx++;}
@@ -192,5 +192,6 @@ public class Player {
                 continue;
             }
         }
+        aGrid.setShipList(shipList);    // Save the ships in the ocean grid of the player in the Battleship_Game class
     }
 }
