@@ -164,7 +164,6 @@ public class Player {
                     /*create Instance of Class Carrier*/
                     int start_xpos = validlines.indexOf(start.charAt(0));
                     int end_xpos = validlines.indexOf(end.charAt(0));
-                    String s = Integer.toString(i); // This method with the object naming does not work (e.g. carrier+s)
                     ArrayList<Ship>[] shipList = new ArrayList[]{new ArrayList<Ship>(), new ArrayList<Ship>(), new ArrayList<Ship>(), new ArrayList<Ship>()};   // This array stores one ArrayList for each type of ship
                     if (idx == 0) {
                         shipList[idx].add(new Carrier(start_xpos, line1, end_xpos, line2));
