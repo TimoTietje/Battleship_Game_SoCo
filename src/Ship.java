@@ -3,31 +3,28 @@ import java.util.Arrays;
 import java.util.List;
 
 public abstract class Ship {
-    private String type;
-    private int length;
-    private boolean isSunk;
-    private Coordinate startCoordinate;
-    private Coordinate endCoordinate;
-    private List<Coordinate> coordinateList;
+    protected String type;
+    protected int length;
+    protected boolean isSunk;
+    protected Coordinate startCoordinate;
+    protected Coordinate endCoordinate;
+    protected List<Coordinate> coordinateList;
 
 
     /* create list with all positions of ship in it */
     protected List<Coordinate> createCoordinateList(Coordinate startCoordinate, Coordinate endCoordinate, int length){
         coordinateList = new ArrayList<Coordinate>();
-        String validlines = "ABCDEFGHIJ";
 
-        /* check if boat is placed horizontal and create list of coordinates */
+        /* check if boat is placed vertical and create list of coordinates */
         if (startCoordinate.getX()  == endCoordinate.getX()){
-            int index = validlines.indexOf(startCoordinate.getX());
             for (int i = startCoordinate.getY(); i <= endCoordinate.getY(); i++) {
-                coordinateList.add(new Coordinate(index, i));
+                coordinateList.add(new Coordinate(startCoordinate.getX(), i));
             }
         }
 
-        /* creat list of coordinates with vertical placed boat */
+        /* creat list of coordinates with horizontal placed boat */
         else{
-            int index_start = validlines.indexOf(startCoordinate.getX());
-            for (int i = index_start; i <= index_start+length; i++){
+            for (int i = startCoordinate.getX(); i < startCoordinate.getX()+length; i++){
                 coordinateList.add(new Coordinate(i, startCoordinate.getY()));
             }
         }

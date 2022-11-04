@@ -31,7 +31,7 @@ public class Grid {
     // Save the ships from the shipList in the grid aka overwrite the grid
     private void updateGrid(ArrayList<Ship>[] shipList){
         char[] shipTypeName = new char[]{'C', 'B', 'S', 'P'}; // Trage diese Symbole ins Grid ein C-Carrier, B-Battleship, S-Submarine, P-Patrol Boat
-        for(int shipType = 0; shipType < 5; shipType++){    // Alle Schiffe im Grid speichern
+        for(int shipType = 0; shipType < 4; shipType++){    // Alle Schiffe im Grid speichern
             for(int i = 0; i < shipList[shipType].size(); i++) {    // Alle Schiffe vom aktuellen shipType im Grid speichern
                 List<Coordinate> coordinatesOfCurrentShip = shipList[shipType].get(i).getCoordinateList();
                 for(int j = 0; j < coordinatesOfCurrentShip.size(); j++){   // Alle Koordinaten vom aktuellen Schiff im Grid speichern
