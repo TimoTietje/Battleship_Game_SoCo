@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="Index out of bounds error gfixt">
+    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="Overwrite Grid with entered ships">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Battleship.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Carrier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PatrolBoat.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Submarine.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,21 +125,7 @@
       <option name="project" value="LOCAL" />
       <updated>1667508547492</updated>
     </task>
-    <task id="LOCAL-00009" summary="Index out of bounds error gfixt">
-      <created>1667548564089</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1667548564089</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Index out of bounds error gfixt">
-      <created>1667553134701</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1667553134701</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,15 +158,17 @@
     <MESSAGE value="Zeile 16 Für d'coordinate List verwendemer jetzt d'Instanzvariable" />
     <MESSAGE value="getter für d'coordinateList hinzuegfüegt" />
     <MESSAGE value="Overwrite Grid with entered ships" />
-    <MESSAGE value="Index out of bounds error gfixt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Index out of bounds error gfixt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Overwrite Grid with entered ships" />
   </component>
   <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="shipList[idx]" language="JAVA" />
-        <watch expression="((Carrier)shipList[idx].get(0)).startCoordinate" custom="Carrier" />
-      </configuration>
-    </watches-manager>
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Battleship_Game.java</url>
+          <line>5</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
