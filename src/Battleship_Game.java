@@ -14,6 +14,7 @@ public class Battleship_Game {
         ocean grid and target grids.*/
         theBoard.printBoard();
         humanPlayer.setShips(theBoard.getHumanOceanGrid());
+        theBoard.printBoard();
 
     }
 }

@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="correct input question in humansetships">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Battleship_Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Battleship_Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grid.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

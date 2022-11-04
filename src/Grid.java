@@ -35,7 +35,7 @@ public class Grid {
             for(int i = 0; i < shipList[shipType].size(); i++) {    // Alle Schiffe vom aktuellen shipType im Grid speichern
                 List<Coordinate> coordinatesOfCurrentShip = shipList[shipType].get(i).getCoordinateList();
                 for(int j = 0; j < coordinatesOfCurrentShip.size(); j++){   // Alle Koordinaten vom aktuellen Schiff im Grid speichern
-                    coordinateSystem[coordinatesOfCurrentShip.get(j).getX()][coordinatesOfCurrentShip.get(j).getY()] = shipTypeName[shipType];
+                    coordinateSystem[coordinatesOfCurrentShip.get(j).getY()][coordinatesOfCurrentShip.get(j).getX()] = shipTypeName[shipType];
                 }
             }
         }
