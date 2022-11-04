@@ -137,7 +137,7 @@ public class Player {
 
         System.out.println("Deploy your ships");
         for (i = 1; i <= amount.get(idx); ) {
-            System.out.println("Enter the start and end coordinates for your " + ships.get(idx) +
+            System.out.println("Enter the start and end coordinates for your " +i+ ". " + ships.get(idx) +
                     " as uppercase letters separated by a coma (e.g. A1,A9)");
             String coordinates = input.next();
 
