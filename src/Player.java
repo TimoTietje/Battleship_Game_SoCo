@@ -183,7 +183,7 @@ public class Player {
 
                     // What is the following code doing?
                     if (i < amount.get(idx)) {i++;}
-                    else if (idx < 4) {i = 1; idx++;}
+                    else if (idx < 3) {i = 1; idx++;}   // idx must stop at 3
                     else {break;}
                 }
             }
