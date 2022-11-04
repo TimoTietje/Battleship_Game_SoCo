@@ -16,63 +16,58 @@ public class Player {
     }
     //pre: line,col,directions, length are of type integer
     //post: ship position is valid or not
-    private boolean is_Valid(int line, int col, int direction, int length){
+    private boolean is_Valid(int line, int col){
         //test if position (line, col) is on grid 0 <= col,line < 10
-        if((col > 10 || col < 0) || (line > 10 || line < 0)){
-            return false;
-        }
-        //north
-        if(direction == 0){
-            if(line - length < 0){
-                return false;
-            }
-        }
-        //east
-        if(direction == 1){
-            if(col + length >= 10){
-                return false;
-            }
-        }
-        //south
-        if(direction == 2){
-            if(line + length >= 10){
-                return false;
-            }
-        }
-        //west
-        if(direction == 3){
-            if(col - length < 0){
-                return false;
-            }
-        }
-        return true;
+        return (col <= 10 && col >= 0) && (line <= 10 && line >= 0);
     }
 
-    private void computerSetShips(Grid aGrid) {
+    private void computerSetShips() {
         // generate random input
         Random rand = new Random(); //we need rand to create random numbers
         int grid_length = 10;
         int[] amount_of_ships = {1, 2, 3, 4}; //the amount of each ship
         int[] ship_lengths = {6,4,3,2}; //to get ship length of amount_of_ships[index]
         int index = 0; //index operate on amount_of_ships and ship_lengths, because
+        int col1, col2, line1,line2, direction;
         //each position matches in amount of ship and length
         while(index<4) {
             //generate random col, line & direction
-            int col = rand.nextInt(grid_length);
-            int line = rand.nextInt(grid_length);
-            int direction = rand.nextInt(4); //4 directions possible 0 == North & clockwise
+            col1 = rand.nextInt(grid_length);
+            line1 = rand.nextInt(grid_length);
+            direction = rand.nextInt(4); //4 directions possible 0 == North & clockwise
+            //north
+            if(direction == 0){
+                line2 = line1 - ship_lengths[index];
+                col2=col1;
+            }
+            //east
+            else if(direction == 1){
+                line2 = line1;
+                col2=col1 + ship_lengths[index];
+            }
+            //south
+            else if(direction == 2){
+                line2 = line1 + ship_lengths[index];
+                col2=col1;
+            }
+            //west
+            else if(direction == 3){
+                line2 = line1;
+                col2=col1 - ship_lengths[index];
+            }
             //validate  input
-            if(is_Valid(line, col, direction, ship_lengths[index])){
+            if(is_Valid(line1, col1) && is_Valid(line2,col2)){
                 //reduce the amount of ships that has to be set
                 amount_of_ships[index]--;
                 //TO DO
-                //setShiponGrid(line, col, direction, ship_lengths[index]);
+                //setShiponGrid(line1, col2, line2, col2);
             }
             if(amount_of_ships[index] == 0){
                 index++;
             }
         }
     }
+
 
     //search for similarities between computerSetShips and humanSetShips to merge
     private boolean valid_length(String start, String end, int length) {
