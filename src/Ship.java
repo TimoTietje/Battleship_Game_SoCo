@@ -2,13 +2,45 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class Ship {
-    protected String type;
-    protected int length;
-    protected boolean isSunk;
-    protected Coordinate startCoordinate;
-    protected Coordinate endCoordinate;
-    protected List<Coordinate> coordinateList;
+public class Ship {
+    private shipClass shipType;
+    private int length;
+    private boolean isSunk;
+    private Coordinate startCoordinate;
+    private Coordinate endCoordinate;
+    private List<Coordinate> coordinateList;
+    enum shipClass{
+        CARRIER, BATTLESHIP, SUBMARINE, PATROL_BOAT
+    }
+
+    public Ship(int start_x, int start_y, int end_x, int end_y) {
+        // Initialize length of ship
+        if (start_x == end_x){
+            this.length = end_y - start_y + 1;
+        }else{
+            length = end_x - start_x + 1;
+        }
+        // Initialize shipType
+        switch(length){
+            case 6:
+                shipType = shipClass.CARRIER;
+                break;
+            case 4:
+                shipType = shipClass.BATTLESHIP;
+                break;
+            case 3:
+                shipType = shipClass.SUBMARINE;
+                break;
+            case 2:
+                shipType = shipClass.PATROL_BOAT;
+                break;
+        }
+        this.startCoordinate = new Coordinate(start_x, start_y);
+        this.endCoordinate = new Coordinate(end_x, end_y);
+        coordinateList = createCoordinateList(startCoordinate, endCoordinate, length);
+        boolean isSunk = false;
+    }
+
 
 
     /* create list with all positions of ship in it */

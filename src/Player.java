@@ -168,16 +168,16 @@ public class Player {
                     int start_xpos = validlines.indexOf(start.charAt(0));
                     int end_xpos = validlines.indexOf(end.charAt(0));
                     if (idx == 0) {
-                        shipList[idx].add(new Carrier(start_xpos, line1, end_xpos, line2));
+                        shipList[idx].add(new Ship(start_xpos, line1, end_xpos, line2));
                     }
                     if (idx == 1) {
-                        shipList[idx].add(new Battleship(start_xpos, line1, end_xpos, line2));
+                        shipList[idx].add(new Ship(start_xpos, line1, end_xpos, line2));
                     }
                     if (idx == 2) {
-                        shipList[idx].add(new Submarine(start_xpos, line1, end_xpos, line2));
+                        shipList[idx].add(new Ship(start_xpos, line1, end_xpos, line2));
                     }
                     if (idx == 3) {
-                        shipList[idx].add(new PatrolBoat(start_xpos, line1, end_xpos, line2));
+                        shipList[idx].add(new Ship(start_xpos, line1, end_xpos, line2));
                     }
 
 
