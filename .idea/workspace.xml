@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="Overwrite Grid with entered ships">
+    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="correct input question in humansetships &amp; method valid_length in Player Class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
     </list>
@@ -125,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667508547492</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="correct input question in humansetships &amp; method valid_length in Player Class">
+      <created>1667559665598</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1667559665598</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,17 +165,7 @@
     <MESSAGE value="Zeile 16 Für d'coordinate List verwendemer jetzt d'Instanzvariable" />
     <MESSAGE value="getter für d'coordinateList hinzuegfüegt" />
     <MESSAGE value="Overwrite Grid with entered ships" />
-    <option name="LAST_COMMIT_MESSAGE" value="Overwrite Grid with entered ships" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Battleship_Game.java</url>
-          <line>5</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="correct input question in humansetships &amp; method valid_length in Player Class" />
+    <option name="LAST_COMMIT_MESSAGE" value="correct input question in humansetships &amp; method valid_length in Player Class" />
   </component>
 </project>

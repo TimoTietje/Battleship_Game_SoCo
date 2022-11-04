@@ -75,7 +75,7 @@ public class Player {
     }
 
     //search for similarities between computerSetShips and humanSetShips to merge
-    static boolean valid_length(String start, String end, int length) {
+    private boolean valid_length(String start, String end, int length) {
         boolean valid = true;
 
         String validlines = "ABCDEFGHIJ";
