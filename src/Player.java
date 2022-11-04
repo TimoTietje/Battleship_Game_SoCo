@@ -184,7 +184,7 @@ public class Player {
 
             // What is the following code doing? -> should end the for-loop correctly
             /*when required amount of specific boat has not yet been reached*/
-            if (i < amount.get(idx)) {i++;}
+            if (shipList[idx].size() < amount.get(idx)) {i++;}
             /*continue with new boat type*/
             else if (idx < 3) {i = 1; idx++;}   // idx must stop at 3
             /*all boats are placed*/
