@@ -21,7 +21,7 @@ public class Player {
         return (col <= 10 && col >= 0) && (line <= 10 && line >= 0);
     }
 
-    private void computerSetShips() {
+    private void computerSetShips(Grid aGrid) {
         // generate random input
         Random rand = new Random(); //we need rand to create random numbers
         int grid_length = 10;
@@ -51,7 +51,7 @@ public class Player {
                 col2=col1;
             }
             //west
-            else if(direction == 3){
+            else {
                 line2 = line1;
                 col2=col1 - ship_lengths[index];
             }
