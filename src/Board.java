@@ -50,4 +50,8 @@ public class Board {
     public Grid getHumanOceanGrid() {
         return humanOceanGrid;
     }
+
+    public Grid getComputerOceanGrid() {
+        return computerOceanGrid;
+    }
 }

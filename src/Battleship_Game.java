@@ -15,6 +15,7 @@ public class Battleship_Game {
         theBoard.printBoard();
         humanPlayer.setShips(theBoard.getHumanOceanGrid());
         theBoard.printBoard();
+        computerPlayer.setShips(theBoard.getComputerOceanGrid());
 
     }
 }

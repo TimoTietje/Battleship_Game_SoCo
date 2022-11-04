@@ -11,7 +11,7 @@ public class Player {
         if (isHuman) {
             humanSetShips(aGrid);
         } else {
-            computerSetShips();
+            computerSetShips(aGrid);
         }
     }
     //pre: line,col,directions, length are of type integer
@@ -48,7 +48,7 @@ public class Player {
         return true;
     }
 
-    private void computerSetShips() {
+    private void computerSetShips(Grid aGrid) {
         // generate random input
         Random rand = new Random(); //we need rand to create random numbers
         int grid_length = 10;
