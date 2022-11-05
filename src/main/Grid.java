@@ -19,8 +19,8 @@ public class Grid {
                                         {' ',' ',' ',' ',' ',' ',' ',' ',' ',' '}};
     }
 
-    public char getCoordinateValue(int x, int y) {
-        return coordinateSystem[x][y];
+    public char getCoordinateValue(int y, int x) {
+        return coordinateSystem[y][x];
     }
 
     public void setShipList(ArrayList<Ship>[] shipList) {

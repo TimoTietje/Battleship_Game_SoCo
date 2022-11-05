@@ -21,6 +21,9 @@ public class Battleship_Game {
     public void playGame(){
         while(true){    // This loop stops when a break statement is reached
             humanPlayer.shoot(theBoard.getHumanTargetGrid());    // Registers a new shot in the human target grid
+            /* We need a method that checks if a shot results in a ship being sunk (This method could
+            overwrite the 'X' symbols in the target grids with capital letters, to tell the printBoard
+            method, the hit of the ship is completed. */
             theBoard.printBoard();
             humanHitAllEnemyShips = theBoard.humanHitAllEnemyShips();   // Checks if the human player hit all enemy ships.
             if(humanHitAllEnemyShips){
@@ -29,6 +32,7 @@ public class Battleship_Game {
             }
             System.out.println("\nNow it's the computers turn.");
             computerPlayer.shoot(theBoard.getComputerTargetGrid()); // Registers a new shot in the computer target grid
+            // We need a method that checks if a shot results in a ship being sunk
             theBoard.printBoard();
             computerHitAllEnemyShips = theBoard.computerHitAllEnemyShips(); // Checks if the computer player hit all enemy ships.
             if(computerHitAllEnemyShips){

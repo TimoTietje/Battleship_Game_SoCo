@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="Save valid shot in target grid.">
-      <change afterPath="$PROJECT_DIR$/src/Test/Battleship_GameTest.java" afterDir="false" />
+    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="Test computerSetShips">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/MainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Battleship_Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Battleship_Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Grid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +191,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667659633530</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Changes tests for game setUp.">
+      <created>1667661611651</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1667661611651</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Test computerSetShips">
+      <created>1667663239251</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1667663239251</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,6 +245,8 @@
     <MESSAGE value="Methods to facilitate shooting and ending the game implemented." />
     <MESSAGE value="Input validation for humanShoot method gmacht" />
     <MESSAGE value="Save valid shot in target grid." />
-    <option name="LAST_COMMIT_MESSAGE" value="Save valid shot in target grid." />
+    <MESSAGE value="Changes tests for game setUp." />
+    <MESSAGE value="Test computerSetShips" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test computerSetShips" />
   </component>
 </project>

@@ -21,7 +21,13 @@ public class Board {
             System.out.print(i);
             System.out.print('|');
             for(int j = 0; j < 10; j++){
-                System.out.print(humanTargetGrid.getCoordinateValue(i, j));
+                if(humanTargetGrid.getCoordinateValue(i,j) == ' '){ // Case 1: Field has not been targeted yet
+                    System.out.print(' ');
+                } else if (computerOceanGrid.getCoordinateValue(i,j) == ' ') {  // Case 2: Field has been targeted but there is no ship.
+                    System.out.print('o');
+                }else{  // Case 3: Field has been targeted and a ship was hit.
+                    System.out.print(humanTargetGrid.getCoordinateValue(i, j));
+                }
                 System.out.print("|");
             }
             System.out.println(i);
