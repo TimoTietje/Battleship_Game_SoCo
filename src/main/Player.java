@@ -210,5 +210,7 @@ public class Player {
             }
             inputIsValid = true;
         }
+        // Save the shot in the targetGrid
+        targetGrid.updateGrid(x, y);
     }
 }

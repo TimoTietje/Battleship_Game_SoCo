@@ -8,11 +8,8 @@ public class Battleship_Game {
         theBoard = new Board();
         humanPlayer = new Player(true);
         computerPlayer = new Player(false);
-
-        setUpGame();
-        playGame();
     }
-    private void setUpGame(){
+    public void setUpGame(){
         /* When the game starts, the program outputs the empty
         ocean grid and target grids.*/
         theBoard.printBoard();
@@ -21,15 +18,18 @@ public class Battleship_Game {
         computerPlayer.setShips(theBoard.getComputerOceanGrid());
     }
 
-    private void playGame(){
+    public void playGame(){
         while(true){    // This loop stops when a break statement is reached
             humanPlayer.shoot(theBoard.getHumanTargetGrid());    // Registers a new shot in the human target grid
+            theBoard.printBoard();
             humanHitAllEnemyShips = theBoard.humanHitAllEnemyShips();   // Checks if the human player hit all enemy ships.
             if(humanHitAllEnemyShips){
                 endGame(humanPlayer);
                 break;
             }
+            System.out.println("\nNow it's the computers turn.");
             computerPlayer.shoot(theBoard.getComputerTargetGrid()); // Registers a new shot in the computer target grid
+            theBoard.printBoard();
             computerHitAllEnemyShips = theBoard.computerHitAllEnemyShips(); // Checks if the computer player hit all enemy ships.
             if(computerHitAllEnemyShips){
                 endGame(computerPlayer);

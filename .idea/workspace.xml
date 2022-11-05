@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="Methods to facilitate shooting and ending the game implemented.">
+    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="Input validation for humanShoot method gmacht">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Battleship_Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Battleship_Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Grid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +27,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SET_USER_NAME_GLOBALLY" value="false" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -166,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667646588257</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Input validation for humanShoot method gmacht">
+      <created>1667658339967</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1667658339967</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +212,7 @@
     <MESSAGE value="correct input question in humansetships" />
     <MESSAGE value="Board gets printed after setting ships" />
     <MESSAGE value="Methods to facilitate shooting and ending the game implemented." />
-    <option name="LAST_COMMIT_MESSAGE" value="Methods to facilitate shooting and ending the game implemented." />
+    <MESSAGE value="Input validation for humanShoot method gmacht" />
+    <option name="LAST_COMMIT_MESSAGE" value="Input validation for humanShoot method gmacht" />
   </component>
 </project>

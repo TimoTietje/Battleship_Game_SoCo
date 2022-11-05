@@ -11,6 +11,8 @@ public class Board {
         computerTargetGrid = new Grid();
     }
 
+    /* This method must compare the target grid to the enemies ocean grid
+    * to give the correct information about which ships were hit/sunk. */
     public void printBoard(){
         System.out.println("===== TARGET GRID =====");
         System.out.println("  A B C D E F G H I J  ");
