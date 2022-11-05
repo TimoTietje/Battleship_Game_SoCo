@@ -128,10 +128,9 @@ public class Player {
             String coordinates = input.next();
 
             /*test if input has total length 5 (otherwise no valid input)*/
-            if (coordinates.length() != 5) {
-                System.out.println("Input is not valid. Try again");
-                continue;
-            }
+            if (coordinates.length() != 5) {System.out.println("Input is not valid. Try again");continue;}
+            /*test if input is separated by comma*/
+            if (coordinates.indexOf(",") == -1) {System.out.println("Invalid input. Try again");continue;}
 
             /*separate input in start & end coordinates*/
             String start = coordinates.substring(0,2);
@@ -156,6 +155,7 @@ public class Player {
             shipList[idx].add(new Ship(start_xpos,start_ypos,end_xpos,end_ypos));
 
             /* SAFE COORDINATES IN GRID*/
+
 
             // What is the following code doing? -> should end the for-loop correctly
             /*when required amount of specific boat has not yet been reached*/
