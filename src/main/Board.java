@@ -79,17 +79,22 @@ public class Board {
         return computerTargetGrid;
     }
 
-    /* Checks if the human player hit all enemy ships.
-    * To achieve that the method compares the human target grid with the
-    * computer ocean grid.*/
-    public Boolean humanHitAllEnemyShips() {
-        return false;
-    }
-
-    /* Checks if the computer player hit all enemy ships.
-     * To achieve that the method compares the computer target grid with the
-     * human ocean grid.*/
-    public Boolean computerHitAllEnemyShips() {
+    /* Checks if a player hit all enemy ships.
+    * To achieve that the method iterates through the enemies ship list which is stored in
+    * his ocean grid and checks if the variable Ship.isSunk is true for all ships.*/
+    public Boolean hitAllEnemyShips(Grid enemyOceanGrid) {
+        ArrayList<Ship>[] computerShips = enemyOceanGrid.getShipList();
+        int shipsDestroyedCounter = 0;
+        for(int i = 0; i < computerShips.length; i++){  // Iterate over ship types
+            for(int j = 0; j < computerShips[i].size(); j++){   // Iterate over ships from current ship type
+                if(computerShips[i].get(j).isSunk()){
+                    shipsDestroyedCounter++;
+                }
+            }
+        }
+        if(shipsDestroyedCounter == 10){
+            return true;
+        }
         return false;
     }
 

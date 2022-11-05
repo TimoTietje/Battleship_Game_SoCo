@@ -97,4 +97,8 @@ public class Ship {
     public void setSunk(boolean sunk) {
         isSunk = sunk;
     }
+
+    public boolean isSunk() {
+        return isSunk;
+    }
 }

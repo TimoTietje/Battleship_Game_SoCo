@@ -23,7 +23,7 @@ public class Battleship_Game {
             humanPlayer.shoot(theBoard.getHumanTargetGrid());    // Registers a new shot in the human target grid
             theBoard.upDateTargetGrid();    // Checks if a ship is sunk, if so it overwrites the 'X' symbols in target grid with capital letters and changes Ship.isSunk to true
             theBoard.printBoard();
-            humanHitAllEnemyShips = theBoard.humanHitAllEnemyShips();   // Checks if the human player hit all enemy ships.
+            humanHitAllEnemyShips = theBoard.hitAllEnemyShips(theBoard.getComputerOceanGrid());   // Checks if the human player hit all enemy ships.
             if(humanHitAllEnemyShips){
                 endGame(humanPlayer);
                 break;
@@ -32,7 +32,7 @@ public class Battleship_Game {
             computerPlayer.shoot(theBoard.getComputerTargetGrid()); // Registers a new shot in the computer target grid
             // We need a method that checks if a shot results in a ship being sunk
             theBoard.printBoard();
-            computerHitAllEnemyShips = theBoard.computerHitAllEnemyShips(); // Checks if the computer player hit all enemy ships.
+            computerHitAllEnemyShips = theBoard.hitAllEnemyShips(theBoard.getHumanOceanGrid()); // Checks if the computer player hit all enemy ships.
             if(computerHitAllEnemyShips){
                 endGame(computerPlayer);
                 break;
