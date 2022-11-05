@@ -57,6 +57,7 @@ public class Player {
                 check = false;
             }
         }
+        aGrid.setShipList(shipList);
     }
 
 
