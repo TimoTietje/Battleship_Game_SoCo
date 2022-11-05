@@ -2,8 +2,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
+    /* The humanOceanGrid stores the locations of the humans ships. */
     private Grid humanOceanGrid;
+    /* The humanTargetGrid stores which cells the human has shot at with an 'X'.
+    * In case a ship has been completely destroyed, the X symbols are overwritten
+    * with capital letters in the Board.upDateTargetGrid method. */
     private Grid humanTargetGrid;
+    /* The computerOceanGrid stores the locations of the computers ships.*/
     private Grid computerOceanGrid;
     private Grid computerTargetGrid;
 
