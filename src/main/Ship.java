@@ -85,4 +85,12 @@ public class Ship {
     public List<Coordinate> getCoordinateList() {
         return coordinateList;
     }
+
+    public int getLength() {
+        return length;
+    }
+
+    public shipClass getShipType() {
+        return shipType;
+    }
 }

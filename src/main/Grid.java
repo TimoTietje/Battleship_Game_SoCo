@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Grid {
     private char coordinateSystem[][];
-    private ArrayList<Ship>[] shipList;
+    private ArrayList<Ship>[] shipList; // Stores the ships e.g. [{Carrier}, {Battleship1, Battleship2}, ...]
 
     public Grid() {
         coordinateSystem = new char[][] {{' ',' ',' ',' ',' ',' ',' ',' ',' ',' '},
@@ -23,9 +23,17 @@ public class Grid {
         return coordinateSystem[y][x];
     }
 
+    public void setCoordinateValue(int y, int x, char c){
+        coordinateSystem[y][x] = c;
+    }
+
     public void setShipList(ArrayList<Ship>[] shipList) {
         this.shipList = shipList;
         updateGrid(shipList);
+    }
+
+    public ArrayList<Ship>[] getShipList() {
+        return shipList;
     }
 
     // Save the ships from the shipList in the grid aka overwrite the grid

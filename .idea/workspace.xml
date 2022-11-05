@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="correct for-loop in humansetships method">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Player.java" afterDir="false" />
+    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="printBoard method now checks if a ship has been hit">
+      <change beforePath="$PROJECT_DIR$/src/main/Battleship_Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Battleship_Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Grid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Ship.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

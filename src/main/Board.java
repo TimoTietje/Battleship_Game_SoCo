@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Board {
     private Grid humanOceanGrid;
     private Grid humanTargetGrid;
@@ -83,5 +86,47 @@ public class Board {
      * human ocean grid.*/
     public Boolean computerHitAllEnemyShips() {
         return false;
+    }
+
+    /* This method compares the human target grid with the computer ocean grid after every
+    * human shot. If a shot makes a ship sink, the 'X' symbols in the human target grid are
+    * overwritten with capital letters. */
+    public void upDateTargetGrid(){
+        ArrayList<Ship>[] computerShips = computerOceanGrid.getShipList();
+        for(int i = 0; i < 4; i++){ // Iterate over ship types
+            for(int j = 0; j < computerShips[i].size(); j++){   // Iterate over ships from current ship type
+                Ship currentShip = computerShips[i].get(j);
+                List<Coordinate> coordinatesCurrentShip = currentShip.getCoordinateList();
+                int countHitCoordinates = 0;
+                for(int k = 0; k < currentShip.getLength(); k++){   // Iterate over coordinates of current ship
+                    Coordinate currentCoordinate = coordinatesCurrentShip.get(k);
+                    if(humanTargetGrid.getCoordinateValue(currentCoordinate.getY(), currentCoordinate.getX()) == 'X'){
+                        countHitCoordinates++;
+                    }
+                }
+                /* If all positions of a ship are hit, overwrite the 'X' values with capital letters
+                * in the human target grid. */
+                if(currentShip.getLength() == countHitCoordinates){
+                    for(int k = 0; k < currentShip.getLength(); k++){   // Iterate over coordinates of current ship
+                        Coordinate currentCoordinate = coordinatesCurrentShip.get(k);
+                        char c;
+                        Ship.shipClass shipType = currentShip.getShipType();
+                        switch(shipType){
+                            case CARRIER:
+                                humanTargetGrid.setCoordinateValue(currentCoordinate.getY(), currentCoordinate.getX(), 'C');
+                                break;
+                            case BATTLESHIP:
+                                humanTargetGrid.setCoordinateValue(currentCoordinate.getY(), currentCoordinate.getX(), 'B');
+                                break;
+                            case SUBMARINE:
+                                humanTargetGrid.setCoordinateValue(currentCoordinate.getY(), currentCoordinate.getX(), 'S');
+                                break;
+                            case PATROL_BOAT:
+                                humanTargetGrid.setCoordinateValue(currentCoordinate.getY(), currentCoordinate.getX(), 'P');
+                        }
+                    }
+                }
+            }
+        }
     }
 }
