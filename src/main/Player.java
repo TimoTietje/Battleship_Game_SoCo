@@ -40,8 +40,8 @@ public class Player {
             int col_end = rand.nextInt(grid_length);
             int line_end = rand.nextInt(grid_length);
 
-            String start = validlines.charAt(col_start) + Integer.toString(line_start);
-            String end = validlines.charAt(col_end) + Integer.toString(line_end);
+            Coordinate start = new Coordinate(col_start, line_start);
+            Coordinate end = new Coordinate(col_end,col_start);
 
             check = valid_length(start, end,ship_lengths[index]);
             if (check && index<=3) {
@@ -62,32 +62,26 @@ public class Player {
 
 
     //search for similarities between computerSetShips and humanSetShips to merge
-    private boolean valid_length(String start, String end, int length) {
+    private boolean valid_length(Coordinate start, Coordinate end, int length) {
         boolean valid = true;
 
         String validlines = "ABCDEFGHIJ";
         /* separate start/end in column & line*/
-        char col_start = start.charAt(0);
-        int line_start = Character.getNumericValue(start.charAt(1));
+        int col_start = start.getX();
+        int line_start = start.getY();
 
-        char col_end = end.charAt(0);
-        int line_end = Character.getNumericValue(end.charAt(1));
-
-        /* column A-J as number*/
-        int col_start_nr = validlines.indexOf(col_start);
-        int col_end_nr = validlines.indexOf(col_end);
+        int col_end = end.getX();
+        int line_end = end.getY();
 
         /*CHECK RANGE*/
         /*check if lines are in range of 0-9*/
         if (Math.max(0, line_start) != Math.min(line_start,9) || Math.max(0,line_end) != Math.min(line_end,9)) {
             valid = false;}
-        /*check if columns are in A-J*/
-        if (validlines.indexOf(col_start) == -1 || validlines.indexOf(col_end) == -1) {valid = false;}
 
         /*CHECK IF COORDINATES == LENGTH OF SPECIFIC SHIP (input parameter "length")*/
         /*when ship is placed horizontally; line_start == line_end*/
         if (line_start == line_end) {
-            int input_length = Math.abs(col_start_nr-col_end_nr) + 1;
+            int input_length = Math.abs(col_start - col_end) + 1;
             if (input_length != length) {valid = false;}
         }
         /*when ship is placed vertically; col_start = col_end*/
@@ -125,7 +119,7 @@ public class Player {
         System.out.println("Deploy your ships");
         for (i = 1; i <= amount.get(idx); ) {
             System.out.println("Enter the start and end coordinates for your " +i+ ". " + ships.get(idx) +
-                    " as uppercase letters separated by a coma (e.g. A1,A9)");
+                    " as uppercase letters separated by a comma (e.g. A1,A9)");
             String coordinates = input.next();
 
             /*test if input has total length 5 (otherwise no valid input)*/
@@ -134,13 +128,24 @@ public class Player {
             if (coordinates.indexOf(",") == -1) {System.out.println("Invalid input. Try again");continue;}
 
             /*separate input in start & end coordinates*/
-            String start = coordinates.substring(0,2);
-            String end = coordinates.substring(3,5);
+            String x = coordinates.substring(0,2);
+            String y = coordinates.substring(3,5);
+
+            /*test if column input is between A-J*/
+            if (validlines.indexOf(x.charAt(0)) == -1 && validlines.indexOf(y.charAt(0)) == -1) {
+                System.out.println("Invalid inpuuut. Try again");continue;}
+
+            Coordinate start = new Coordinate(validlines.indexOf(x.charAt(0)),
+                    Character.getNumericValue(x.charAt(1)));
+
+            Coordinate end = new Coordinate(validlines.indexOf(y.charAt(0)),
+                    Character.getNumericValue(y.charAt(1)));
 
             /* check if input is valid*/
             boolean valid_input_length = valid_length(start,end,ship_len.get(idx));
             if (!valid_input_length) {System.out.println("Invalid Input. Try again");continue;}
             /* CHECK IF SHIP CAN BE PLACED IN GRID -> bool free_place*/
+
 
             /* if (valid_input_length && free_place)
                 -> initialize ships with given coordinates
@@ -148,10 +153,10 @@ public class Player {
 
             /*initialize ships with given coordinates*/
             /*create Instance of Class Carrier*/
-            int start_xpos = validlines.indexOf(start.charAt(0));
-            int start_ypos = Character.getNumericValue(start.charAt(1));
-            int end_xpos = validlines.indexOf(end.charAt(0));
-            int end_ypos = Character.getNumericValue(end.charAt(1));
+            int start_xpos = start.getX();
+            int start_ypos = start.getY();
+            int end_xpos = end.getX();
+            int end_ypos = end.getY();
 
             shipList[idx].add(new Ship(start_xpos,start_ypos,end_xpos,end_ypos));
 
@@ -166,7 +171,6 @@ public class Player {
             /*all boats are placed*/
             else {break;}
         }
-
         aGrid.setShipList(shipList);    // Save the ships in the ocean grid of the player in the Battleship_Game class
     }
 

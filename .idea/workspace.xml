@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="check if user gives in coordinates separated by comma (humansetships)">
+    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="safe computerships in computer ocean grid">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667663650052</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="safe computerships in computer ocean grid">
+      <created>1667663857861</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1667663857861</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +209,7 @@
     <MESSAGE value="correct input question in humansetships" />
     <MESSAGE value="Board gets printed after setting ships" />
     <MESSAGE value="check if user gives in coordinates separated by comma (humansetships)" />
-    <option name="LAST_COMMIT_MESSAGE" value="check if user gives in coordinates separated by comma (humansetships)" />
+    <MESSAGE value="safe computerships in computer ocean grid" />
+    <option name="LAST_COMMIT_MESSAGE" value="safe computerships in computer ocean grid" />
   </component>
 </project>
