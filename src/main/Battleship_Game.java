@@ -23,13 +23,13 @@ public class Battleship_Game {
 
     private void playGame(){
         while(true){    // This loop stops when a break statement is reached
-            humanPlayer.shoot();    // Registers a new shot in the human target grid
+            humanPlayer.shoot(theBoard.getHumanTargetGrid());    // Registers a new shot in the human target grid
             humanHitAllEnemyShips = theBoard.humanHitAllEnemyShips();   // Checks if the human player hit all enemy ships.
             if(humanHitAllEnemyShips){
                 endGame(humanPlayer);
                 break;
             }
-            computerPlayer.shoot(); // Registers a new shot in the computer target grid
+            computerPlayer.shoot(theBoard.getComputerTargetGrid()); // Registers a new shot in the computer target grid
             computerHitAllEnemyShips = theBoard.computerHitAllEnemyShips(); // Checks if the computer player hit all enemy ships.
             if(computerHitAllEnemyShips){
                 endGame(computerPlayer);

@@ -55,6 +55,14 @@ public class Board {
         return computerOceanGrid;
     }
 
+    public Grid getHumanTargetGrid() {
+        return humanTargetGrid;
+    }
+
+    public Grid getComputerTargetGrid() {
+        return computerTargetGrid;
+    }
+
     /* Checks if the human player hit all enemy ships.
     * To achieve that the method compares the human target grid with the
     * computer ocean grid.*/

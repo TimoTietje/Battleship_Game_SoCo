@@ -170,19 +170,45 @@ public class Player {
     }
 
     /* Player enters coordinate of shot.
-    * Validity check of shot.
+    * Validity check of shot (is the given string a coordinate on the field
+    * and has this field already been targeted before).
     * Update target grid of player. */
-    public void shoot(){
+    public void shoot(Grid targetGrid){
         if(isHuman){
-            humanShoot();
+            humanShoot(targetGrid);
         } else {
-            computerShoot();
+            computerShoot(targetGrid);
         }
     }
 
-    private void computerShoot() {
+    private void computerShoot(Grid targetGrid) {
     }
 
-    private void humanShoot() {
+    private void humanShoot(Grid targetGrid) {
+        Scanner input = new Scanner(System.in);
+        String validLines = "ABCDEFGHIJ";
+        Boolean inputIsValid = false;
+        int x = -1,y = -1;
+        while(!inputIsValid){
+            System.out.println("Which coordinate would you like to shoot at?");
+            String coordinateOfShot = input.next();
+            if (coordinateOfShot.length() != 2) {   // If input has a length != 2 the input is invalid
+                System.out.println("Give input of length two. E.g. F5");
+                continue;
+            }
+            x = coordinateOfShot.charAt(0) - 65;    // Ascii('A') is 65 => 'A'-65=0
+            y = coordinateOfShot.charAt(1) - 48;    // Ascii('0') is 48 => '0'-48=0
+            if (x < 0 || x > 9 || y < 0 || x > 9){  // Check if the coordinate is on the field
+                System.out.println("Input out of bounds. E.g. for a valid input: E5");
+                continue;
+            }
+            /* Check if the coordinate has already been shot at.
+            * If targetGrid.getCoordinateValue(x,y) returns 'X' or 'o', this coordinate has already been targeted. */
+            if(targetGrid.getCoordinateValue(x,y) != ' '){
+                System.out.println("This coordinate has already been targeted.");
+                continue;
+            }
+            inputIsValid = true;
+        }
     }
 }
