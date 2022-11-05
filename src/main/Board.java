@@ -107,6 +107,7 @@ public class Board {
                 /* If all positions of a ship are hit, overwrite the 'X' values with capital letters
                 * in the human target grid. */
                 if(currentShip.getLength() == countHitCoordinates){
+                    currentShip.setSunk(true);
                     for(int k = 0; k < currentShip.getLength(); k++){   // Iterate over coordinates of current ship
                         Coordinate currentCoordinate = coordinatesCurrentShip.get(k);
                         char c;

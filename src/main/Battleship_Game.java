@@ -21,10 +21,7 @@ public class Battleship_Game {
     public void playGame(){
         while(true){    // This loop stops when a break statement is reached
             humanPlayer.shoot(theBoard.getHumanTargetGrid());    // Registers a new shot in the human target grid
-            /* We need a method that checks if a shot results in a ship being sunk (This method could
-            overwrite the 'X' symbols in the target grids with capital letters, to tell the printBoard
-            method, the hit of the ship is completed. */
-            theBoard.upDateTargetGrid();
+            theBoard.upDateTargetGrid();    // Checks if a ship is sunk, if so it overwrites the 'X' symbols in target grid with capital letters and changes Ship.isSunk to true
             theBoard.printBoard();
             humanHitAllEnemyShips = theBoard.humanHitAllEnemyShips();   // Checks if the human player hit all enemy ships.
             if(humanHitAllEnemyShips){
