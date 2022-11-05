@@ -21,9 +21,6 @@ public class Player {
         return (col <= 10 && col >= 0) && (line <= 10 && line >= 0);
     }
 
-    private void initialize_ships(ArrayList<Ship>[] shipList, int start_xpos, int start_ypos, int end_xpos, int end_ypos, int index) {
-        shipList[index].add(new Ship(start_xpos,start_ypos,end_xpos,end_ypos));
-    }
     private void computerSetShips(Grid aGrid) {
         // generate random input
         Random rand = new Random(); //we need rand to create random numbers
@@ -50,7 +47,7 @@ public class Player {
             if (check) {
                 /* CHECK IF ITS FREE IN GRID*/
                 /*if yes; Initialize Ship*/
-                initialize_ships(shipList,col_start,line_start,col_end,line_end,ship_lengths[index]);
+                shipList[index].add(new Ship(col_start,line_start,col_end,line_end));
                 if (shipList[index].size() == amount_of_ships[index]) {index++; check = false;}
             }
         }
@@ -150,7 +147,7 @@ public class Player {
             int end_xpos = validlines.indexOf(end.charAt(0));
             int end_ypos = Character.getNumericValue(end.charAt(1));
 
-            initialize_ships(shipList,start_xpos, start_ypos, end_xpos, end_ypos,idx);
+            shipList[idx].add(new Ship(start_xpos,start_ypos,end_xpos,end_ypos));
 
             /* SAFE COORDINATES IN GRID*/
 
