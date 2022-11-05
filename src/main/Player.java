@@ -204,7 +204,7 @@ public class Player {
             }
             /* Check if the coordinate has already been shot at.
             * If targetGrid.getCoordinateValue(x,y) returns 'X' or 'o', this coordinate has already been targeted. */
-            if(targetGrid.getCoordinateValue(x,y) != ' '){
+            if(targetGrid.getCoordinateValue(y,x) != ' '){
                 System.out.println("This coordinate has already been targeted.");
                 continue;
             }
