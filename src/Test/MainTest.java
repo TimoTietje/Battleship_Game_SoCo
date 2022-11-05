@@ -27,5 +27,6 @@ class MainTest {
         System.setIn(inStream);
         String[] list = new String[]{};
         Main.main(list);
+        assertEquals(1, 1); // This test always passes. I just want to see the printed board in the console.
     }
 }

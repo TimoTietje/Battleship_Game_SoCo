@@ -168,4 +168,21 @@ public class Player {
 
         aGrid.setShipList(shipList);    // Save the ships in the ocean grid of the player in the Battleship_Game class
     }
+
+    /* Player enters coordinate of shot.
+    * Validity check of shot.
+    * Update target grid of player. */
+    public void shoot(){
+        if(isHuman){
+            humanShoot();
+        } else {
+            computerShoot();
+        }
+    }
+
+    private void computerShoot() {
+    }
+
+    private void humanShoot() {
+    }
 }
