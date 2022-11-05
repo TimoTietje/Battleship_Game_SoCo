@@ -20,8 +20,13 @@ public class Battleship_Game {
 
     public void playGame(){
         while(true){    // This loop stops when a break statement is reached
-            humanPlayer.shoot(theBoard.getHumanTargetGrid());    // Registers a new shot in the human target grid
-            theBoard.upDateTargetGrid();    // Checks if a ship is sunk, if so it overwrites the 'X' symbols in target grid with capital letters and changes Ship.isSunk to true
+            /* Checks if the last shot was a hit. If so it puts an 'X' in the target grid, else an 'o'.
+            * The input parameter registers a new shot and returns its coordinate. */
+            Boolean wasAHit = theBoard.checkIfShotWasAHit(humanPlayer.shoot(theBoard.getHumanTargetGrid()), theBoard.getHumanTargetGrid(), theBoard.getComputerOceanGrid());
+            if(wasAHit){
+                /* Checks if a ship is sunk, if so it overwrites the 'X' symbols in
+                 * target grid with capital letters and changes Ship.isSunk to true. */
+                theBoard.upDateTargetGrid(theBoard.getComputerOceanGrid(), theBoard.getHumanTargetGrid());}
             theBoard.printBoard();
             humanHitAllEnemyShips = theBoard.hitAllEnemyShips(theBoard.getComputerOceanGrid());   // Checks if the human player hit all enemy ships.
             if(humanHitAllEnemyShips){
@@ -37,7 +42,6 @@ public class Battleship_Game {
                 endGame(computerPlayer);
                 break;
             }
-            break;  // Currently this is an endless loop. This break point must be removed as soon as the game works.
         }
     }
 

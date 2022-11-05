@@ -174,18 +174,20 @@ public class Player {
     * Validity check of shot (is the given string a coordinate on the field
     * and has this field already been targeted before).
     * Update target grid of player. */
-    public void shoot(Grid targetGrid){
+    public Coordinate shoot(Grid targetGrid){
         if(isHuman){
-            humanShoot(targetGrid);
+            return humanShoot(targetGrid);
         } else {
-            computerShoot(targetGrid);
+            return computerShoot(targetGrid);
         }
     }
 
-    private void computerShoot(Grid targetGrid) {
+    private Coordinate computerShoot(Grid targetGrid) {
+        // Shoot next to fields that contain hit ships
+        return new Coordinate(0,0);
     }
 
-    private void humanShoot(Grid targetGrid) {
+    private Coordinate humanShoot(Grid targetGrid) {
         Scanner input = new Scanner(System.in);
         String validLines = "ABCDEFGHIJ";
         Boolean inputIsValid = false;
@@ -213,5 +215,6 @@ public class Player {
         }
         // Save the shot in the targetGrid
         targetGrid.updateGrid(x, y);
+        return new Coordinate(x,y);
     }
 }

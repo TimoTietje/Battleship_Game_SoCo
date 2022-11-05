@@ -98,11 +98,11 @@ public class Board {
         return false;
     }
 
-    /* This method compares the human target grid with the computer ocean grid after every
-    * human shot. If a shot makes a ship sink, the 'X' symbols in the human target grid are
+    /* This method compares the human target grid with the computer if the last shot was
+    * a hit. If a hit makes a ship sink, the 'X' symbols in the human target grid are
     * overwritten with capital letters. */
-    public void upDateTargetGrid(){
-        ArrayList<Ship>[] computerShips = computerOceanGrid.getShipList();
+    public void upDateTargetGrid(Grid enemyOceanGrid, Grid ownerTargetGrid){
+        ArrayList<Ship>[] computerShips = enemyOceanGrid.getShipList();
         for(int i = 0; i < 4; i++){ // Iterate over ship types
             for(int j = 0; j < computerShips[i].size(); j++){   // Iterate over ships from current ship type
                 Ship currentShip = computerShips[i].get(j);
@@ -110,7 +110,7 @@ public class Board {
                 int countHitCoordinates = 0;
                 for(int k = 0; k < currentShip.getLength(); k++){   // Iterate over coordinates of current ship
                     Coordinate currentCoordinate = coordinatesCurrentShip.get(k);
-                    if(humanTargetGrid.getCoordinateValue(currentCoordinate.getY(), currentCoordinate.getX()) == 'X'){
+                    if(ownerTargetGrid.getCoordinateValue(currentCoordinate.getY(), currentCoordinate.getX()) == 'X'){
                         countHitCoordinates++;
                     }
                 }
@@ -120,24 +120,35 @@ public class Board {
                     currentShip.setSunk(true);
                     for(int k = 0; k < currentShip.getLength(); k++){   // Iterate over coordinates of current ship
                         Coordinate currentCoordinate = coordinatesCurrentShip.get(k);
-                        char c;
                         Ship.shipClass shipType = currentShip.getShipType();
                         switch(shipType){
                             case CARRIER:
-                                humanTargetGrid.setCoordinateValue(currentCoordinate.getY(), currentCoordinate.getX(), 'C');
+                                ownerTargetGrid.setCoordinateValue(currentCoordinate.getY(), currentCoordinate.getX(), 'C');
                                 break;
                             case BATTLESHIP:
-                                humanTargetGrid.setCoordinateValue(currentCoordinate.getY(), currentCoordinate.getX(), 'B');
+                                ownerTargetGrid.setCoordinateValue(currentCoordinate.getY(), currentCoordinate.getX(), 'B');
                                 break;
                             case SUBMARINE:
-                                humanTargetGrid.setCoordinateValue(currentCoordinate.getY(), currentCoordinate.getX(), 'S');
+                                ownerTargetGrid.setCoordinateValue(currentCoordinate.getY(), currentCoordinate.getX(), 'S');
                                 break;
                             case PATROL_BOAT:
-                                humanTargetGrid.setCoordinateValue(currentCoordinate.getY(), currentCoordinate.getX(), 'P');
+                                ownerTargetGrid.setCoordinateValue(currentCoordinate.getY(), currentCoordinate.getX(), 'P');
                         }
                     }
                 }
             }
+        }
+    }
+
+    /* Checks if the last shot was a hit. If so it puts an 'X' in the target grid, else an 'o'.
+     * The input parameter registers a new shot and returns its coordinate. */
+    public Boolean checkIfShotWasAHit(Coordinate lastShotCoordinate, Grid ownerTargetGrid, Grid enemyOceanGrid){
+        if(enemyOceanGrid.getCoordinateValue(lastShotCoordinate.getY(), lastShotCoordinate.getX()) != ' '){
+            ownerTargetGrid.setCoordinateValue(lastShotCoordinate.getY(), lastShotCoordinate.getX(), 'X');
+            return true;
+        }else{
+            ownerTargetGrid.setCoordinateValue(lastShotCoordinate.getY(), lastShotCoordinate.getX(), 'o');
+            return false;
         }
     }
 }

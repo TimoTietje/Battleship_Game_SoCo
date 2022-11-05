@@ -54,4 +54,8 @@ public class Grid {
     public void updateGrid(int x, int y){
         coordinateSystem[y][x] = 'X';
     }
+
+    public char[][] getCoordinateSystem() {
+        return coordinateSystem;
+    }
 }
