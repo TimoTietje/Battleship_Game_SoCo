@@ -44,11 +44,17 @@ public class Player {
             String end = validlines.charAt(col_end) + Integer.toString(line_end);
 
             check = valid_length(start, end,ship_lengths[index]);
-            if (check) {
-                /* CHECK IF ITS FREE IN GRID*/
+            if (check && index<=3) {
+                /* CHECK IF IT'S FREE IN GRID*/
                 /*if yes; Initialize Ship*/
                 shipList[index].add(new Ship(col_start,line_start,col_end,line_end));
-                if (shipList[index].size() == amount_of_ships[index]) {index++; check = false;}
+                if (shipList[index].size() == amount_of_ships[index]) {
+                    if (index != 3) {
+                        index++;
+                        check = false;
+                    } else {break;}
+                }
+                check = false;
             }
         }
     }
