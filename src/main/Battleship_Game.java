@@ -19,7 +19,8 @@ public class Battleship_Game {
     }
 
     public void playGame(){
-        while(true){    // This loop stops when a break statement is reached
+        while(true){
+            // This loop stops when a break statement is reached
             /* Checks if the last shot was a hit. If so it puts an 'X' in the target grid, else an 'o'.
             * The input parameter registers a new shot and returns its coordinate. */
             Boolean wasAHit = theBoard.checkIfShotWasAHit(humanPlayer.shoot(theBoard.getHumanTargetGrid()), theBoard.getHumanTargetGrid(), theBoard.getComputerOceanGrid());
@@ -47,7 +48,41 @@ public class Battleship_Game {
 
     /* This method prints who the winner is and prints target grids of the human and the computer,
     * so the player can see, where the remaining ships are.*/
-    private void endGame(Player winner){
-
+    public void endGame(Player winner){
+        if(theBoard.hitAllEnemyShips(theBoard.getHumanOceanGrid())){
+            System.out.println("The Computer is the winner!");}
+        else System.out.println("You Won!");
+        //print target grids
+        //computer
+        System.out.println("===== Computer Ships =====");
+        System.out.println("  A B C D E F G H I J  ");
+        System.out.println(" +-+-+-+-+-+-+-+-+-+-+ ");
+        char[][] ComputerTarget = theBoard.getComputerOceanGrid().getCoordinateSystem();
+        for(int i=0; i<10;i++){
+            System.out.print(i + "|");
+            for(int j=0; j<10;j++){
+                System.out.print(ComputerTarget[i][j]+ "|");
+            }
+            System.out.println(i);
+        }
+        System.out.println(" +-+-+-+-+-+-+-+-+-+-+ ");
+        System.out.println("  A B C D E F G H I J  ");
+        System.out.println("=======================");
+        //Human
+        System.out.println("===== Human Ships =====");
+        System.out.println("  A B C D E F G H I J  ");
+        System.out.println(" +-+-+-+-+-+-+-+-+-+-+ ");
+        char[][] HumanTarget = theBoard.getHumanOceanGrid().getCoordinateSystem();
+        for(int i =0; i<10;i++){
+            System.out.print(i + "|");
+            for(int j=0; j<10;j++){
+                System.out.print(HumanTarget[i][j]+ "|");
+            }
+            System.out.println(i);
+        }
+        System.out.println(" +-+-+-+-+-+-+-+-+-+-+ ");
+        System.out.println("  A B C D E F G H I J  ");
+        System.out.println("=======================");
     }
 }
+
