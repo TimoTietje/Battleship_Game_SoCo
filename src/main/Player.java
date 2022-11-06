@@ -30,6 +30,7 @@ public class Player {
         int index = 0;
         String validlines = "ABCDEFGHIJ";
         boolean check = false;
+        boolean freePlace = true;
         ArrayList<Ship>[] shipList = new ArrayList[]{new ArrayList<Ship>(), new ArrayList<Ship>(),
                 new ArrayList<Ship>(), new ArrayList<Ship>()};
 
@@ -44,10 +45,19 @@ public class Player {
             Coordinate end = new Coordinate(col_end,col_start);
 
             check = valid_length(start, end,ship_lengths[index]);
-            if (check && index<=3) {
-                /* CHECK IF IT'S FREE IN GRID*/
-                /*if yes; Initialize Ship*/
+
+            /* CHECK IF IT'S FREE IN GRID*/
+            for (int xpos = start.getX(); xpos <= end.getX(); xpos++){
+                for (int ypos = start.getY(); ypos <= end.getY(); ypos++){
+                    if (aGrid.isCollision(xpos, ypos)){ //check if collision in oceangrid of computer
+                        freePlace = false;
+                    }
+                }
+            }
+
+            if (check && freePlace && index<=3) {
                 shipList[index].add(new Ship(col_start,line_start,col_end,line_end));
+                aGrid.setShip(start,end,index);
                 if (shipList[index].size() == amount_of_ships[index]) {
                     if (index != 3) {
                         index++;
