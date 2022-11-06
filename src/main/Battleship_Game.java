@@ -20,7 +20,7 @@ public class Battleship_Game {
 
     public void playGame(){
         while(true){    // This loop stops when a break statement is reached
-            /* Checks if the last shot was a hit. If so it puts an 'X' in the target grid, else an 'o'.
+            /* Checks if the last shot was a hit. If so it puts an 'X' in the target grid, else an "o".
             * The input parameter registers a new shot and returns its coordinate. */
             Boolean wasAHit = theBoard.checkIfShotWasAHit(humanPlayer.shoot(theBoard.getHumanTargetGrid()), theBoard.getHumanTargetGrid(), theBoard.getComputerOceanGrid());
             if(wasAHit){

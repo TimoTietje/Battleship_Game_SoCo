@@ -98,9 +98,10 @@ public class Board {
         return false;
     }
 
-    /* This method compares the human target grid with the computer if the last shot was
+    /* This method compares the human target grid with the computer ocean grid if the last shot was
     * a hit. If a hit makes a ship sink, the 'X' symbols in the human target grid are
-    * overwritten with capital letters. */
+    * overwritten with the respective capital letters. And the Ship.isSunk variable is set true in
+    * the enemies ocean grid. */
     public void upDateTargetGrid(Grid enemyOceanGrid, Grid ownerTargetGrid){
         ArrayList<Ship>[] computerShips = enemyOceanGrid.getShipList();
         for(int i = 0; i < 4; i++){ // Iterate over ship types
