@@ -24,22 +24,20 @@ public class Player {
     private void computerSetShips(Grid aGrid) {
         // generate random input
         Random rand = new Random(); //we need rand to create random numbers
-        int grid_length = 10;
         int[] amount_of_ships = {1, 2, 3, 4}; //the amount of each ship
         int[] ship_lengths = {6,4,3,2}; //to get ship length of amount_of_ships[index]
         int index = 0;
-        String validlines = "ABCDEFGHIJ";
         boolean check = false;
         boolean freePlace = true;
         ArrayList<Ship>[] shipList = new ArrayList[]{new ArrayList<Ship>(), new ArrayList<Ship>(),
                 new ArrayList<Ship>(), new ArrayList<Ship>()};
 
         while (!check) {
-            int col_start = rand.nextInt(grid_length);
-            int line_start = rand.nextInt(grid_length);
+            int col_start = rand.nextInt(10);
+            int line_start = rand.nextInt(10);
 
-            int col_end = rand.nextInt(grid_length);
-            int line_end = rand.nextInt(grid_length);
+            int col_end = rand.nextInt(10);
+            int line_end = rand.nextInt(10);
 
             Coordinate start = new Coordinate(col_start, line_start);
             Coordinate end = new Coordinate(col_end,col_start);
@@ -47,15 +45,15 @@ public class Player {
             check = valid_length(start, end,ship_lengths[index]);
 
             /* CHECK IF IT'S FREE IN GRID*/
-            for (int xpos = start.getX(); xpos <= end.getX(); xpos++){
-                for (int ypos = start.getY(); ypos <= end.getY(); ypos++){
-                    if (aGrid.isCollision(xpos, ypos)){ //check if collision in oceangrid of computer
+            for (int xPos = start.getX(); xPos <= end.getX(); xPos++){
+                for (int yPos = start.getY(); yPos <= end.getY(); yPos++){
+                    if (aGrid.getCoordinateValue(yPos, xPos) == ' '){ //check if collision in ocean grid of computer
                         freePlace = false;
                     }
                 }
             }
 
-            if (check && freePlace && index<=3) {
+            if (check && freePlace && index <= 3) {
                 shipList[index].add(new Ship(col_start,line_start,col_end,line_end));
                 aGrid.setShip(start,end,index);
                 if (shipList[index].size() == amount_of_ships[index]) {
@@ -143,7 +141,7 @@ public class Player {
 
             /*test if column input is between A-J*/
             if (validlines.indexOf(x.charAt(0)) == -1 && validlines.indexOf(y.charAt(0)) == -1) {
-                System.out.println("Invalid inpuuut. Try again");continue;}
+                System.out.println("Invalid input. Try again");continue;}
 
             Coordinate start = new Coordinate(validlines.indexOf(x.charAt(0)),
                     Character.getNumericValue(x.charAt(1)));
@@ -153,9 +151,9 @@ public class Player {
             boolean valid_input_length = valid_length(start,end,ship_len.get(idx));
             boolean freePlace = true;
 
-            for (int xpos = start.getX(); xpos <= end.getX(); xpos++){
-                for (int ypos = start.getY(); ypos <= end.getY(); ypos++){
-                    if (aGrid.isCollision(xpos, ypos)){ //check if collision in oceangrid of player
+            for (int xPos = start.getX(); xPos <= end.getX(); xPos++){
+                for (int yPos = start.getY(); yPos <= end.getY(); yPos++){
+                    if (aGrid.getCoordinateValue(yPos, xPos) != ' '){ //check if collision in ocean grid of player
                         freePlace = false;
                     }
                 }

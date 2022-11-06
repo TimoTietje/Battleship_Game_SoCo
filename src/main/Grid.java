@@ -44,10 +44,6 @@ public class Grid {
         }
     }
 
-    public boolean isCollision(int x, int y){;
-        return coordinateSystem[y][x] != ' ';
-    }
-
     /* This updateGrid method is used after a player entered a valid shot.
     * All targeted cells get marked with a 'X'.*/
     public void updateGrid(int x, int y){
