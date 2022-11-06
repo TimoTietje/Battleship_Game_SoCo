@@ -45,10 +45,13 @@ public class Player {
             check = valid_length(start, end,ship_lengths[index]);
 
             /* CHECK IF IT'S FREE IN GRID*/
-            for (int xPos = start.getX(); xPos <= end.getX(); xPos++){
-                for (int yPos = start.getY(); yPos <= end.getY(); yPos++){
-                    if (aGrid.getCoordinateValue(yPos, xPos) == ' '){ //check if collision in ocean grid of computer
-                        freePlace = false;
+            if(check) {
+                for (int xPos = start.getX(); xPos <= end.getX(); xPos++) {
+                    for (int yPos = start.getY(); yPos <= end.getY(); yPos++) {
+                        if (aGrid.getCoordinateValue(yPos, xPos) != ' ') { //check if collision in ocean grid of computer
+                            freePlace = false;
+                            check = false;
+                        }
                     }
                 }
             }
@@ -83,7 +86,7 @@ public class Player {
 
         /*CHECK RANGE*/
         /*check if lines are in range of 0-9*/
-        if (Math.max(0, line_start) != Math.min(line_start,9) || Math.max(0,line_end) != Math.min(line_end,9)) {
+        if (!is_Valid(line_start,line_end)) {
             valid = false;}
 
         /*CHECK IF COORDINATES == LENGTH OF SPECIFIC SHIP (input parameter "length")*/
@@ -112,7 +115,7 @@ public class Player {
 
         Scanner input = new Scanner(System.in);
 
-        String validlines = "ABCDEFGHIJ";
+        String validLines = "ABCDEFGHIJ";
 
         List<String> ships = Arrays.asList("Carrier (Length: 6)", "Battleship (Length: 4)",
                 "Submarine (Length: 3)", "Patrol Boat (Length: 2)");
@@ -121,7 +124,7 @@ public class Player {
         int idx = 0;
         int i;
         /* This variable stores the entered ships and passes them to the grid to save them.
-         * Each ship type is saved in a seperate nested ArrayList. */
+         * Each ship type is saved in a separate nested ArrayList. */
         ArrayList<Ship>[] shipList = new ArrayList[]{new ArrayList<Ship>(), new ArrayList<Ship>(), new ArrayList<Ship>(), new ArrayList<Ship>()};
 
         System.out.println("Deploy your ships");
@@ -140,12 +143,12 @@ public class Player {
             String y = coordinates.substring(3,5);
 
             /*test if column input is between A-J*/
-            if (validlines.indexOf(x.charAt(0)) == -1 && validlines.indexOf(y.charAt(0)) == -1) {
+            if (validLines.indexOf(x.charAt(0)) == -1 && validLines.indexOf(y.charAt(0)) == -1) {
                 System.out.println("Invalid input. Try again");continue;}
 
-            Coordinate start = new Coordinate(validlines.indexOf(x.charAt(0)),
+            Coordinate start = new Coordinate(validLines.indexOf(x.charAt(0)),
                     Character.getNumericValue(x.charAt(1)));
-            Coordinate end = new Coordinate(validlines.indexOf(y.charAt(0)),
+            Coordinate end = new Coordinate(validLines.indexOf(y.charAt(0)),
                     Character.getNumericValue(y.charAt(1)));
             /* check if input is valid*/
             boolean valid_input_length = valid_length(start,end,ship_len.get(idx));
