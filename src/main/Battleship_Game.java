@@ -22,7 +22,7 @@ public class Battleship_Game {
 
     public void playGame(){
         Random rand = new Random(); //we need rand to create random numbers
-        Boolean computerStarts = rand.nextBoolean();
+        boolean computerStarts = rand.nextBoolean();
         if(computerStarts){ // I inserted this block, in case the computer takes the first turn
             System.out.println("\nNow it's the computers turn.");
             computerPlayer.shoot(theBoard.getComputerTargetGrid()); // Registers a new shot in the computer target grid

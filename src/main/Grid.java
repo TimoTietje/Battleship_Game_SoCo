@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Grid {
-    private char coordinateSystem[][];
+    private char[][] coordinateSystem;
     private ArrayList<Ship>[] shipList; // Stores the ships e.g. [{Carrier}, {Battleship1, Battleship2}, ...]
 
     public Grid() {
@@ -48,9 +48,5 @@ public class Grid {
     * All targeted cells get marked with a 'X'.*/
     public void updateGrid(int x, int y){
         coordinateSystem[y][x] = 'X';
-    }
-
-    public char[][] getCoordinateSystem() {
-        return coordinateSystem;
     }
 }

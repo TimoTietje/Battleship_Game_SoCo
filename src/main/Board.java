@@ -92,10 +92,7 @@ public class Board {
                 }
             }
         }
-        if(shipsDestroyedCounter == 10){
-            return true;
-        }
-        return false;
+        return shipsDestroyedCounter == 10;
     }
 
     /* This method compares the human target grid with the computer ocean grid if the last shot was

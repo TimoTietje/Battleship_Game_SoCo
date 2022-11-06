@@ -21,19 +21,11 @@ public class Ship {
             length = end_x - start_x + 1;
         }
         // Initialize shipType
-        switch(length){
-            case 6:
-                shipType = shipClass.CARRIER;
-                break;
-            case 4:
-                shipType = shipClass.BATTLESHIP;
-                break;
-            case 3:
-                shipType = shipClass.SUBMARINE;
-                break;
-            case 2:
-                shipType = shipClass.PATROL_BOAT;
-                break;
+        switch (length) {
+            case 6 -> shipType = shipClass.CARRIER;
+            case 4 -> shipType = shipClass.BATTLESHIP;
+            case 3 -> shipType = shipClass.SUBMARINE;
+            case 2 -> shipType = shipClass.PATROL_BOAT;
         }
         this.startCoordinate = new Coordinate(start_x, start_y);
         this.endCoordinate = new Coordinate(end_x, end_y);

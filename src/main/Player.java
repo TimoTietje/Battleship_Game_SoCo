@@ -27,13 +27,13 @@ public class Player {
         int[] amount_of_ships = {1, 2, 3, 4}; //the amount of each ship
         int[] ship_lengths = {6,4,3,2}; //to get ship length of amount_of_ships[index]
         int index = 0;
-        int direction = -1;
-        boolean check = false;
+        int direction;
+        boolean check;
         boolean freePlace = true;
         ArrayList<Ship>[] shipList = new ArrayList[]{new ArrayList<Ship>(), new ArrayList<Ship>(),
                 new ArrayList<Ship>(), new ArrayList<Ship>()};
 
-        while (!check) {
+        while (true) { //loop ends with break statement
             Coordinate start = new Coordinate(rand.nextInt(10), rand.nextInt(10));
             Coordinate end;
             direction = rand.nextInt(2);
@@ -56,13 +56,14 @@ public class Player {
                 }
             }
 
-            if (check && freePlace && index <= 3) {
+            if (check && freePlace) {
                 shipList[index].add(new Ship(start.getX(),start.getY(), end.getX(), end.getY()));
                 aGrid.setShip(start,end,index);
                 if (shipList[index].size() == amount_of_ships[index]) {
                     if (index != 3) {
                         index++;
-                    } else {break;}
+                    }
+                    else break;
                 }
             }
             check = false;
@@ -76,7 +77,6 @@ public class Player {
     private boolean coordinateInBoundaries(Coordinate start, Coordinate end, int length) {
         boolean valid = true;
 
-        String validlines = "ABCDEFGHIJ";
         /* separate start/end in column & line*/
         int col_start = start.getX();
         int line_start = start.getY();
@@ -136,7 +136,7 @@ public class Player {
             /*test if input has total length 5 (otherwise no valid input)*/
             if (coordinates.length() != 5) {System.out.println("Input is not valid. Try again");continue;}
             /*test if input is separated by comma*/
-            if (coordinates.indexOf(",") == -1) {System.out.println("Invalid input. Try again");continue;}
+            if (!coordinates.contains(",")) {System.out.println("Invalid input. Try again");continue;}
 
             /*separate input in start & end coordinates*/
             String x = coordinates.substring(0,2);
@@ -172,7 +172,7 @@ public class Player {
             aGrid.setShip(start, end, idx);
 
 
-            /*create shiplist for grid*/
+            /*create shipList for grid*/
             shipList[idx].add(new Ship(start.getX(),start.getY(),end.getX(),end.getY()));
             /* SAFE COORDINATES IN GRID*/
 
@@ -204,12 +204,10 @@ public class Player {
         Coordinate shot;
         // Shoot next to fields that contain the symbol "X".
         Random rand = new Random(); // We need rand to create random numbers
-        Boolean xExists = false;
-        ArrayList<Coordinate> existingXSymbols = new ArrayList<Coordinate>();
+        ArrayList<Coordinate> existingXSymbols = new ArrayList<>();
         for(int y = 0; y < 9; y++){
             for(int x = 0; x < 9; x++){
                 if(targetGrid.getCoordinateValue(y, x) == 'X'){
-                    xExists = true;
                     existingXSymbols.add(new Coordinate(x, y));
                     // Check if there are more 'X' symbols rightwards
                     int k = 1;
@@ -290,7 +288,7 @@ public class Player {
         /* If there are no "X" symbols, target a random field.
         * Create an array with all rows with positions the computer can attack. From these rows
         * randomly choose one to attack. */
-        ArrayList<Integer> freeRows = new ArrayList<Integer>();
+        ArrayList<Integer> freeRows = new ArrayList<>();
         for(int y = 0; y < 10; y++){
             for(int x = 0; x < 10; x++){
                 // Add a row to the list if there is at least one opportunity to attack
@@ -303,7 +301,7 @@ public class Player {
         int attackRow = freeRows.get(rand.nextInt(freeRows.size()));
         /* Then create an array of y coordinates of that row, which are
          * still free to attack. From these y coordinates randomly choose one to attack. */
-        ArrayList<Integer> freePositions = new ArrayList<Integer>();
+        ArrayList<Integer> freePositions = new ArrayList<>();
         for(int x = 0; x < 10; x++){
             if(targetGrid.getCoordinateValue(attackRow, x) == ' '){
                 freePositions.add(x);
@@ -315,8 +313,7 @@ public class Player {
 
     private Coordinate humanShoot(Grid targetGrid) {
         Scanner input = new Scanner(System.in);
-        String validLines = "ABCDEFGHIJ";
-        Boolean inputIsValid = false;
+        boolean inputIsValid = false;
         int x = -1,y = -1;
         while(!inputIsValid){
             System.out.println("Which coordinate would you like to shoot at?");
@@ -327,7 +324,7 @@ public class Player {
             }
             x = coordinateOfShot.charAt(0) - 65;    // Ascii('A') is 65 => 'A'-65=0
             y = coordinateOfShot.charAt(1) - 48;    // Ascii('0') is 48 => '0'-48=0
-            if (x < 0 || x > 9 || y < 0 || x > 9){  // Check if the coordinate is on the field
+            if (x < 0 || x > 9 || y < 0 || y > 9){  // Check if the coordinate is on the field
                 System.out.println("Input out of bounds. E.g. for a valid input: E5");
                 continue;
             }
