@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Battleship_Game {
     private  Board theBoard;
     private Player humanPlayer;
@@ -19,9 +21,18 @@ public class Battleship_Game {
     }
 
     public void playGame(){
+        Random rand = new Random(); //we need rand to create random numbers
+        Boolean computerStarts = rand.nextBoolean();
+        if(computerStarts){ // I inserted this block, in case the computer takes the first turn
+            System.out.println("\nNow it's the computers turn.");
+            computerPlayer.shoot(theBoard.getComputerTargetGrid()); // Registers a new shot in the computer target grid
+            // We need a method that checks if a shot results in a ship being sunk
+            theBoard.printBoard();
+        }
         while(true){    // This loop stops when a break statement is reached
             /* Checks if the last shot was a hit. If so it puts an 'X' in the target grid, else an "o".
             * The input parameter registers a new shot and returns its coordinate. */
+            // Humans turn
             Boolean wasAHit = theBoard.checkIfShotWasAHit(humanPlayer.shoot(theBoard.getHumanTargetGrid()), theBoard.getHumanTargetGrid(), theBoard.getComputerOceanGrid());
             if(wasAHit){
                 /* Checks if a ship is sunk, if so it overwrites the 'X' symbols in
@@ -33,6 +44,7 @@ public class Battleship_Game {
                 endGame(humanPlayer);
                 break;
             }
+            // Computers turn
             System.out.println("\nNow it's the computers turn.");
             computerPlayer.shoot(theBoard.getComputerTargetGrid()); // Registers a new shot in the computer target grid
             // We need a method that checks if a shot results in a ship being sunk
@@ -43,6 +55,7 @@ public class Battleship_Game {
                 break;
             }
         }
+
     }
 
     /* This method prints who the winner is and prints target grids of the human and the computer,
@@ -52,6 +65,8 @@ public class Battleship_Game {
             System.out.println("\nYou lost. The computers remaining ships not get revealed.");
             theBoard.createEndBoard();
             theBoard.printBoard();
+        }else{
+            System.out.println("\n CONGRATULATIONS, YOU WON!");
         }
     }
 }
