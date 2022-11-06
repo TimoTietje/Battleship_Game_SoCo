@@ -18,7 +18,7 @@ public class Player {
     //post: ship position is valid or not
     private boolean is_Valid(int line, int col){
         //test if position (line, col) is on grid 0 <= col,line < 10
-        return (col < 10 && col >= 0) && (line < 10 && line >= 0);
+        return (0 <= col && col < 10 && 0 <= line && line < 10);
     }
 
     private void computerSetShips(Grid aGrid) {
@@ -27,22 +27,23 @@ public class Player {
         int[] amount_of_ships = {1, 2, 3, 4}; //the amount of each ship
         int[] ship_lengths = {6,4,3,2}; //to get ship length of amount_of_ships[index]
         int index = 0;
+        int direction = -1;
         boolean check = false;
         boolean freePlace = true;
         ArrayList<Ship>[] shipList = new ArrayList[]{new ArrayList<Ship>(), new ArrayList<Ship>(),
                 new ArrayList<Ship>(), new ArrayList<Ship>()};
 
         while (!check) {
-            int col_start = rand.nextInt(10);
-            int line_start = rand.nextInt(10);
+            Coordinate start = new Coordinate(rand.nextInt(10), rand.nextInt(10));
+            Coordinate end;
+            direction = rand.nextInt(2);
+            if(direction == 0){
+                end = new Coordinate(start.getX() + ship_lengths[index]-1, start.getY());
+            }else{
+                end = new Coordinate(start.getX(), start.getY() + ship_lengths[index]-1);
+            }
 
-            int col_end = rand.nextInt(10);
-            int line_end = rand.nextInt(10);
-
-            Coordinate start = new Coordinate(col_start, line_start);
-            Coordinate end = new Coordinate(col_end,col_start);
-
-            check = valid_length(start, end,ship_lengths[index]);
+            check = coordinateInBoundaries(start, end,ship_lengths[index]);
 
             /* CHECK IF IT'S FREE IN GRID*/
             if(check) {
@@ -50,30 +51,29 @@ public class Player {
                     for (int yPos = start.getY(); yPos <= end.getY(); yPos++) {
                         if (aGrid.getCoordinateValue(yPos, xPos) != ' ') { //check if collision in ocean grid of computer
                             freePlace = false;
-                            check = false;
                         }
                     }
                 }
             }
 
             if (check && freePlace && index <= 3) {
-                shipList[index].add(new Ship(col_start,line_start,col_end,line_end));
+                shipList[index].add(new Ship(start.getX(),start.getY(), end.getX(), end.getY()));
                 aGrid.setShip(start,end,index);
                 if (shipList[index].size() == amount_of_ships[index]) {
                     if (index != 3) {
                         index++;
-                        check = false;
                     } else {break;}
                 }
-                check = false;
             }
+            check = false;
+            freePlace = true;
         }
         aGrid.setShipList(shipList);
     }
 
 
     //search for similarities between computerSetShips and humanSetShips to merge
-    private boolean valid_length(Coordinate start, Coordinate end, int length) {
+    private boolean coordinateInBoundaries(Coordinate start, Coordinate end, int length) {
         boolean valid = true;
 
         String validlines = "ABCDEFGHIJ";
@@ -86,7 +86,7 @@ public class Player {
 
         /*CHECK RANGE*/
         /*check if lines are in range of 0-9*/
-        if (!is_Valid(line_start,line_end)) {
+        if (!is_Valid(col_start,line_start) || !is_Valid(col_end, line_end)) {
             valid = false;}
 
         /*CHECK IF COORDINATES == LENGTH OF SPECIFIC SHIP (input parameter "length")*/
@@ -151,7 +151,7 @@ public class Player {
             Coordinate end = new Coordinate(validLines.indexOf(y.charAt(0)),
                     Character.getNumericValue(y.charAt(1)));
             /* check if input is valid*/
-            boolean valid_input_length = valid_length(start,end,ship_len.get(idx));
+            boolean valid_input_length = coordinateInBoundaries(start,end,ship_len.get(idx));
             boolean freePlace = true;
 
             for (int xPos = start.getX(); xPos <= end.getX(); xPos++){
