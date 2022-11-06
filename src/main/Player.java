@@ -137,29 +137,32 @@ public class Player {
 
             Coordinate start = new Coordinate(validlines.indexOf(x.charAt(0)),
                     Character.getNumericValue(x.charAt(1)));
-
             Coordinate end = new Coordinate(validlines.indexOf(y.charAt(0)),
                     Character.getNumericValue(y.charAt(1)));
-
             /* check if input is valid*/
             boolean valid_input_length = valid_length(start,end,ship_len.get(idx));
-            if (!valid_input_length) {System.out.println("Invalid Input. Try again");continue;}
+            boolean freePlace = true;
+
+            for (int xpos = start.getX(); xpos <= end.getX(); xpos++){
+                for (int ypos = start.getY(); ypos <= end.getY(); ypos++){
+                    if (aGrid.isCollision(xpos, ypos)){ //check if collision in oceangrid of player
+                        freePlace = false;
+                    }
+                }
+            }
+
             /* CHECK IF SHIP CAN BE PLACED IN GRID -> bool free_place*/
 
+            if (!valid_input_length || !freePlace) {System.out.println("Invalid Input. Try again");continue;}
 
             /* if (valid_input_length && free_place)
                 -> initialize ships with given coordinates
                 -> safe coordinates in grid */
+            aGrid.setShip(start, end, idx);
 
-            /*initialize ships with given coordinates*/
-            /*create Instance of Class Carrier*/
-            int start_xpos = start.getX();
-            int start_ypos = start.getY();
-            int end_xpos = end.getX();
-            int end_ypos = end.getY();
 
-            shipList[idx].add(new Ship(start_xpos,start_ypos,end_xpos,end_ypos));
-
+            /*create shiplist for grid*/
+            shipList[idx].add(new Ship(start.getX(),start.getY(),end.getX(),end.getY()));
             /* SAFE COORDINATES IN GRID*/
 
 

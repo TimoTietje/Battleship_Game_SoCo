@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +28,6 @@ public class Grid {
 
     public void setShipList(ArrayList<Ship>[] shipList) {
         this.shipList = shipList;
-        updateGrid(shipList);
     }
 
     public ArrayList<Ship>[] getShipList() {
@@ -37,16 +35,17 @@ public class Grid {
     }
 
     // Save the ships from the shipList in the grid aka overwrite the grid
-    private void updateGrid(ArrayList<Ship>[] shipList){
+    public void setShip(Coordinate start, Coordinate end, int shipType){ //shipType: 1 = C, 2= B, 3= S ...
         char[] shipTypeName = new char[]{'C', 'B', 'S', 'P'}; // Trage diese Symbole ins Grid ein C-Carrier, B-Battleship, S-Submarine, P-Patrol Boat
-        for(int shipType = 0; shipType < 4; shipType++){    // Alle Schiffe im Grid speichern
-            for(int i = 0; i < shipList[shipType].size(); i++) {    // Alle Schiffe vom aktuellen shipType im Grid speichern
-                List<Coordinate> coordinatesOfCurrentShip = shipList[shipType].get(i).getCoordinateList();
-                for(int j = 0; j < coordinatesOfCurrentShip.size(); j++){   // Alle Koordinaten vom aktuellen Schiff im Grid speichern
-                    coordinateSystem[coordinatesOfCurrentShip.get(j).getY()][coordinatesOfCurrentShip.get(j).getX()] = shipTypeName[shipType];
-                }
+        for(int x = start.getX(); x <= end.getX(); x++){    //
+            for(int y = start.getY(); y <= end.getY(); y++) {    //
+                coordinateSystem[y][x] = shipTypeName[shipType];
             }
         }
+    }
+
+    public boolean isCollision(int x, int y){;
+        return coordinateSystem[y][x] != ' ';
     }
 
     /* This updateGrid method is used after a player entered a valid shot.
