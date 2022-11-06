@@ -243,7 +243,7 @@ public class Player {
                     if(existingXSymbols.size() > 1){
                         int yLast = existingXSymbols.get(existingXSymbols.size()-1).getY(); // Stores the x coordinate of the rightmost 'X' symbol
                         // Check if the field above and below haven't been targeted yet. There would be an "o".
-                        if(targetGrid.getCoordinateValue(y-1, x) == ' ' && targetGrid.getCoordinateValue(y, yLast) == ' '){
+                        if(targetGrid.getCoordinateValue(y-1, x) == ' ' && targetGrid.getCoordinateValue(yLast+1, x) == ' '){
                             int pos = rand.nextInt(2);
                             if(pos == 0){   // If pos == 0, shoot above our 'X' symbols
                                 shot = new Coordinate(x, y-1);
