@@ -1,7 +1,5 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class PlayerTest {
 
     @Test
@@ -25,7 +23,7 @@ class PlayerTest {
         System.out.println("  A B C D E F G H I J  ");
         System.out.println("=======================");
     }
-/*
+    /*
     @Test
     void computerShootTest() {
         // All shots should be within the field. The shots don't need to be next to each other
@@ -40,7 +38,7 @@ class PlayerTest {
         }
 
         // All shots should be next to the coordinate (6,5)
-        System.out.println("\nTest computer Shoot method on non empty Grid");
+        System.out.println("\nTest computer Shoot method on non-empty Grid");
         targetGrid.setCoordinateValue(5, 5, 'X');
         for(int i = 0; i < 4; i++) {
             lastShot = computerPLayer.shoot(targetGrid);
