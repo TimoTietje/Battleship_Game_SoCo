@@ -101,4 +101,16 @@ public class Ship {
     public boolean isSunk() {
         return isSunk;
     }
+
+    public char getChar(){
+        switch (shipType){
+            case CARRIER:
+                return 'C';
+            case SUBMARINE:
+                return 'S';
+            case BATTLESHIP:
+                return 'B';
+        }
+        return 'P';
+    }
 }

@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
-/*
+
     @Test
     void setShips() {
         Player computerPlayer = new Player(false);
@@ -25,11 +25,11 @@ class PlayerTest {
         System.out.println("  A B C D E F G H I J  ");
         System.out.println("=======================");
     }
-*/
+/*
     @Test
     void computerShootTest() {
-        /* All shots should be within the field. The shots don't need to be next to each other
-        * because at any point during this the first for loop, the target grid is empty.*/
+        // All shots should be within the field. The shots don't need to be next to each other
+        //because at any point during this the first for loop, the target grid is empty.
         System.out.println("Test computerShoot method on empty Grid: ");
         Player computerPLayer = new Player(false);
         Grid targetGrid = new Grid();
@@ -39,7 +39,7 @@ class PlayerTest {
             System.out.println("X: " + lastShot.getX() + ", Y: " + lastShot.getY());
         }
 
-        /* All shots should be next to the coordinate (6,5)*/
+        // All shots should be next to the coordinate (6,5)
         System.out.println("\nTest computer Shoot method on non empty Grid");
         targetGrid.setCoordinateValue(5, 5, 'X');
         for(int i = 0; i < 4; i++) {
@@ -47,4 +47,5 @@ class PlayerTest {
             System.out.println("X: " + lastShot.getX() + ", Y: " + lastShot.getY());
         }
     }
+    */
 }

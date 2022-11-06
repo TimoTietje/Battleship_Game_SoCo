@@ -48,6 +48,10 @@ public class Battleship_Game {
     /* This method prints who the winner is and prints target grids of the human and the computer,
     * so the player can see, where the remaining ships are.*/
     private void endGame(Player winner){
-
+        if (winner == computerPlayer){
+            System.out.println("\nYou lost. The computers remaining ships not get revealed.");
+            theBoard.createEndBoard();
+            theBoard.printBoard();
+        }
     }
 }

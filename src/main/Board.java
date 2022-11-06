@@ -152,4 +152,23 @@ public class Board {
             return false;
         }
     }
+
+    /* Go through the computers ship list and mark all non sunk ships in the human target grid. */
+    public void createEndBoard(){
+        ArrayList<Ship>[] computerShips = computerOceanGrid.getShipList();
+        for(int i = 0; i < 4; i++){ // Iterate over ship types
+            for(int j = 0; j < computerShips[i].size(); j++){   // Iterate over ships from current type
+                Ship currentShip = computerShips[i].get(j);
+                if(currentShip.isSunk()){
+                    continue;
+                }else{
+                    for(int k = 0; k < currentShip.getLength(); k++){
+                        Coordinate currentCoordinate;
+                        currentCoordinate = currentShip.getCoordinateList().get(k);
+                        humanTargetGrid.setCoordinateValue(currentCoordinate.getY(), currentCoordinate.getX(), currentShip.getChar());
+                    }
+                }
+            }
+        }
+    }
 }
