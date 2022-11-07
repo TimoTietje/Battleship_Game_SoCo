@@ -201,101 +201,11 @@ public class Player {
     }
 
     private Coordinate computerShoot(Grid targetGrid) {
-        Coordinate shot;
-        // Shoot next to fields that contain the symbol "X".
-        Random rand = new Random(); // We need rand to create random numbers
-        ArrayList<Coordinate> existingXSymbols = new ArrayList<>();
-        for(int y = 0; y < 9; y++){
-            for(int x = 0; x < 9; x++){
-                if(targetGrid.getCoordinateValue(y, x) == 'X'){
-                    existingXSymbols.add(new Coordinate(x, y));
-                    // Check if there are more 'X' symbols rightwards
-                    int k = 1;
-                    while(x+k < 10 && targetGrid.getCoordinateValue(y, x+k) == 'X'){
-                        existingXSymbols.add(new Coordinate(x+k, y));
-                        k++;
-                    }
-                    // If the targeted ship is horizontal --> shoot to the right or the left of the hits
-                    if(existingXSymbols.size() > 1){
-                        int xLast = existingXSymbols.get(existingXSymbols.size()-1).getX(); // Stores the x coordinate of the rightmost 'X' symbol
-                        // Check if the field to the left and to the right haven't been targeted yet.
-                        if(is_Valid(y, x-1) && targetGrid.getCoordinateValue(y, x-1) == ' ' && is_Valid(y, xLast+1) && targetGrid.getCoordinateValue(y, xLast + 1) == ' '){
-                            int pos = rand.nextInt(2);
-                            if(pos == 0){   // If pos == 0, shoot to the left of our 'X' symbols
-                                shot = new Coordinate(x-1, y);
-                            }else { // If pos == 1, shoot to the right of the right most 'X' symbol
-                                shot = new Coordinate(xLast+1, y);
-                            }
-                        } else if (is_Valid(y, x-1) && targetGrid.getCoordinateValue(y, x-1) == ' ') {  // Only the field on the left of our 'X' symbols is free
-                            shot = new Coordinate(x-1, y);
-                        }else if(is_Valid(y, xLast + 1) && targetGrid.getCoordinateValue(y, xLast + 1) == ' '){  // Only the field to the right of our 'X' block is free
-                            shot = new Coordinate(xLast+1, y);
-                        } else if (is_Valid(y+1, x) && targetGrid.getCoordinateValue(y+1, x) == ' ') {
-                            shot = new Coordinate((y+1), x);
-                        }else{
-                            shot = new Coordinate(y-1, x);
-                        }
-                        return shot;
-                    }
-                    // Check if there are more 'X' symbols downwards
-                    k = 1;
-                    while(y+k < 10 && targetGrid.getCoordinateValue(y+k, x) == 'X'){
-                        existingXSymbols.add(new Coordinate(x, y+k));
-                        k++;
-                    }
-                    // If the targeted ship is vertical --> shoot above or below of the hits
-                    if(existingXSymbols.size() > 1){
-                        int yLast = existingXSymbols.get(existingXSymbols.size()-1).getY(); // Stores the x coordinate of the rightmost 'X' symbol
-                        // Check if the field above and below haven't been targeted yet. There would be an "o".
-                        if(is_Valid(y-1, x) && targetGrid.getCoordinateValue(y-1, x) == ' ' && is_Valid(yLast+1, x) && targetGrid.getCoordinateValue(yLast+1, x) == ' '){
-                            int pos = rand.nextInt(2);
-                            if(pos == 0){   // If pos == 0, shoot above our 'X' symbols
-                                shot = new Coordinate(x, y-1);
-                            }else { // If pos == 1, shoot below our 'X' symbols
-                                shot = new Coordinate(x, yLast+1);
-                            }
-                        } else if (is_Valid(y-1, x) && targetGrid.getCoordinateValue(y-1, x) == ' ') {  // Only the field above our 'X' symbols is free
-                            shot = new Coordinate(x, y-1);
-                        }else if(is_Valid(yLast+1, x) && targetGrid.getCoordinateValue(yLast+1, x) == ' '){  // Only the field below our 'X' block is free
-                            shot = new Coordinate(x, yLast+1);
-                        }else if(is_Valid(y, x+1) && targetGrid.getCoordinateValue(y, x+1) == ' '){
-                            shot = new Coordinate(x+1, y);
-                        }else{
-                            shot = new Coordinate(x-1, y);
-                        }
-                        return shot;
-                    }
-                    // If there is only one hit yet, shoot to the left/above/right/below
-                    int pos = rand.nextInt(4);  //left (0)/above(1)/right(2)/below(3)
-                    switch(pos){
-                        case 0:
-                            if(is_Valid(x-1, y)){
-                                shot = new Coordinate(x-1, y);
-                                return shot;
-                            }
-                        case 1:
-                            if(is_Valid(x, y-1)) {
-                                shot = new Coordinate(x, y - 1);
-                                return shot;
-                            }
-                        case 2:
-                            if(is_Valid(x+1, y)){
-                                shot = new Coordinate(x+1, y);
-                                return shot;
-                            }
-                        case 3:
-                            if(is_Valid(x, y+1)){
-                                shot = new Coordinate(x, y+1);
-                                return shot;
-                            }
-                    }
-                }
-            }
-        }
-
-        /* If there are no "X" symbols, target a random field.
+        /* Target a random fields.
         * Create an array with all rows with positions the computer can attack. From these rows
         * randomly choose one to attack. */
+        Coordinate shot;
+        Random rand = new Random(); // We need rand to create random numbers
         ArrayList<Integer> freeRows = new ArrayList<>();
         for(int y = 0; y < 10; y++){
             for(int x = 0; x < 10; x++){

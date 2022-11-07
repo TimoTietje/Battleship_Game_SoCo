@@ -51,7 +51,7 @@ class Battleship_GameTest {
         System.out.println("----------------------");
 
         boolean wasAHit = false;
-        for(int i = 0; i < 30; i++) {
+        for(int i = 0; i < 50; i++) {
             wasAHit = aBoard.checkIfShotWasAHit(computerPlayer.shoot(aBoard.getComputerTargetGrid()), aBoard.getComputerTargetGrid(), aBoard.getHumanOceanGrid());
             System.out.println(wasAHit);
             if(wasAHit){
