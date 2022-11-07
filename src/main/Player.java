@@ -72,7 +72,8 @@ public class Player {
     }
 
 
-    //search for similarities between computerSetShips and humanSetShips to merge
+    /*search for similarities between computerSetShips and humanSetShips to merge
+    * @pre start and end Coordinate are not null*/
     private boolean coordinateInBoundaries(Coordinate start, Coordinate end, int length) {
         boolean valid = true;
 
