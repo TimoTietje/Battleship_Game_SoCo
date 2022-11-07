@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="computerShoot logic delted, test works now">
+    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="computerShoot sött laufe">
       <change beforePath="$PROJECT_DIR$/src/main/Battleship_Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Battleship_Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Board.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667807139537</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="computerShoot sött laufe">
+      <created>1667807403032</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1667807403032</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,17 +308,7 @@
     <MESSAGE value="Delted Hello World" />
     <MESSAGE value="Player shoot test und computerShoot (funktioniert nid)" />
     <MESSAGE value="computerShoot logic delted, test works now" />
-    <option name="LAST_COMMIT_MESSAGE" value="computerShoot logic delted, test works now" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/Board.java</url>
-          <line>143</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="computerShoot sött laufe" />
+    <option name="LAST_COMMIT_MESSAGE" value="computerShoot sött laufe" />
   </component>
 </project>

@@ -168,4 +168,8 @@ public class Board {
             }
         }
     }
+
+    public void reportHit(Coordinate lastShot, Grid enemyOceanGrid) {
+        enemyOceanGrid.setCoordinateValue(lastShot.getY(), lastShot.getX(), 'X');
+    }
 }

@@ -26,9 +26,14 @@ public class Battleship_Game {
         boolean wasAHit = false;
         if(computerStarts){ // I inserted this block, in case the computer takes the first turn
             System.out.println("\nNow it's the computers turn.");
-            wasAHit = theBoard.checkIfShotWasAHit(computerPlayer.shoot(theBoard.getComputerTargetGrid()), theBoard.getComputerTargetGrid(), theBoard.getHumanOceanGrid()); // Registers a new shot in the computer target grid
+            Coordinate lastShot = computerPlayer.shoot(theBoard.getComputerTargetGrid());
+            wasAHit = theBoard.checkIfShotWasAHit(lastShot, theBoard.getComputerTargetGrid(), theBoard.getHumanOceanGrid()); // Registers a new shot in the computer target grid
             if(wasAHit){
                 theBoard.upDateTargetGrid(theBoard.getHumanOceanGrid(), theBoard.getComputerTargetGrid());
+                theBoard.reportHit(lastShot, theBoard.getHumanOceanGrid()); // Report hit to humanOceanGrid
+                System.out.println("The computer hit one of your ships.");
+            }else{
+                System.out.println("The computer missed.");
             }
             theBoard.printBoard();
         }
@@ -49,9 +54,14 @@ public class Battleship_Game {
             }
             // Computers turn
             System.out.println("\nNow it's the computers turn.");
-            wasAHit = theBoard.checkIfShotWasAHit(computerPlayer.shoot(theBoard.getComputerTargetGrid()), theBoard.getComputerTargetGrid(), theBoard.getHumanOceanGrid()); // Registers a new shot in the computer target grid
+            Coordinate lastShot = computerPlayer.shoot(theBoard.getComputerTargetGrid());
+            wasAHit = theBoard.checkIfShotWasAHit(lastShot, theBoard.getComputerTargetGrid(), theBoard.getHumanOceanGrid()); // Registers a new shot in the computer target grid
             if(wasAHit){
                 theBoard.upDateTargetGrid(theBoard.getHumanOceanGrid(), theBoard.getComputerTargetGrid());
+                theBoard.reportHit(lastShot, theBoard.getHumanOceanGrid()); // Report hit to humanOceanGrid
+                System.out.println("The computer hit one of your ships.");
+            }else{
+                System.out.println("The computer missed.");
             }
             theBoard.printBoard();
             computerHitAllEnemyShips = theBoard.hitAllEnemyShips(theBoard.getHumanOceanGrid()); // Checks if the computer player hit all enemy ships.
