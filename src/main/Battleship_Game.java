@@ -29,7 +29,7 @@ public class Battleship_Game {
             Coordinate lastShot = computerPlayer.shoot(theBoard.getComputerTargetGrid());
             wasAHit = theBoard.checkIfShotWasAHit(lastShot, theBoard.getComputerTargetGrid(), theBoard.getHumanOceanGrid()); // Registers a new shot in the computer target grid
             if(wasAHit){
-                theBoard.upDateTargetGrid(theBoard.getHumanOceanGrid(), theBoard.getComputerTargetGrid());
+                theBoard.updateTargetGrid(theBoard.getHumanOceanGrid(), theBoard.getComputerTargetGrid());
                 theBoard.reportHit(lastShot, theBoard.getHumanOceanGrid()); // Report hit to humanOceanGrid
                 System.out.println("The computer hit one of your ships.");
             }else{
@@ -45,7 +45,7 @@ public class Battleship_Game {
             if(wasAHit){
                 /* Checks if a ship is sunk, if so it overwrites the 'X' symbols in
                  * target grid with capital letters and changes Ship.isSunk to true. */
-                theBoard.upDateTargetGrid(theBoard.getComputerOceanGrid(), theBoard.getHumanTargetGrid());}
+                theBoard.updateTargetGrid(theBoard.getComputerOceanGrid(), theBoard.getHumanTargetGrid());}
             theBoard.printBoard();
             humanHitAllEnemyShips = theBoard.hitAllEnemyShips(theBoard.getComputerOceanGrid());   // Checks if the human player hit all enemy ships.
             if(humanHitAllEnemyShips){
@@ -57,7 +57,7 @@ public class Battleship_Game {
             Coordinate lastShot = computerPlayer.shoot(theBoard.getComputerTargetGrid());
             wasAHit = theBoard.checkIfShotWasAHit(lastShot, theBoard.getComputerTargetGrid(), theBoard.getHumanOceanGrid()); // Registers a new shot in the computer target grid
             if(wasAHit){
-                theBoard.upDateTargetGrid(theBoard.getHumanOceanGrid(), theBoard.getComputerTargetGrid());
+                theBoard.updateTargetGrid(theBoard.getHumanOceanGrid(), theBoard.getComputerTargetGrid());
                 theBoard.reportHit(lastShot, theBoard.getHumanOceanGrid()); // Report hit to humanOceanGrid
                 System.out.println("The computer hit one of your ships.");
                 theBoard.printBoard();

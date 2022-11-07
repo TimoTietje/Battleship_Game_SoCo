@@ -30,7 +30,7 @@ public class Ship {
         this.startCoordinate = new Coordinate(start_x, start_y);
         this.endCoordinate = new Coordinate(end_x, end_y);
         coordinateList = createCoordinateList(startCoordinate, endCoordinate, length);
-        boolean isSunk = false;
+        isSunk = false;
     }
 
 

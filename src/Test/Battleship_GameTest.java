@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.io.InputStream;
 import java.io.StringBufferInputStream;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class Battleship_GameTest {
     private InputStream sysInBackup;
     private Battleship_Game aGame;
@@ -55,7 +53,7 @@ class Battleship_GameTest {
             wasAHit = aBoard.checkIfShotWasAHit(computerPlayer.shoot(aBoard.getComputerTargetGrid()), aBoard.getComputerTargetGrid(), aBoard.getHumanOceanGrid());
             System.out.println(wasAHit);
             if(wasAHit){
-                aBoard.upDateTargetGrid(aBoard.getHumanOceanGrid(), aBoard.getComputerTargetGrid());
+                aBoard.updateTargetGrid(aBoard.getHumanOceanGrid(), aBoard.getComputerTargetGrid());
             }
             // Print the computers target grid
             System.out.println(" |A|B|C|D|E|F|G|H|I|J|");

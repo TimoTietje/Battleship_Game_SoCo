@@ -99,7 +99,7 @@ public class Board {
     * a hit. If a hit makes a ship sink, the 'X' symbols in the human target grid are
     * overwritten with the respective capital letters. And the Ship.isSunk variable is set true in
     * the enemies ocean grid. */
-    public void upDateTargetGrid(Grid enemyOceanGrid, Grid ownerTargetGrid){
+    public void updateTargetGrid(Grid enemyOceanGrid, Grid ownerTargetGrid){
         ArrayList<Ship>[] computerShips = enemyOceanGrid.getShipList();
         for(int i = 0; i < 4; i++){ // Iterate over ship types
             for(int j = 0; j < computerShips[i].size(); j++){   // Iterate over ships from current ship type
