@@ -85,9 +85,9 @@ public class Board {
     public Boolean hitAllEnemyShips(Grid enemyOceanGrid) {
         ArrayList<Ship>[] computerShips = enemyOceanGrid.getShipList();
         int shipsDestroyedCounter = 0;
-        for(int i = 0; i < computerShips.length; i++){  // Iterate over ship types
-            for(int j = 0; j < computerShips[i].size(); j++){   // Iterate over ships from current ship type
-                if(computerShips[i].get(j).isSunk()){
+        for (ArrayList<Ship> computerShip : computerShips) {  // Iterate over ship types
+            for (Ship ship : computerShip) {   // Iterate over ships from current ship type
+                if (ship.isSunk()) {
                     shipsDestroyedCounter++;
                 }
             }
