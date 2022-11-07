@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Grid {
-    private char[][] coordinateSystem;
+    private final char[][] coordinateSystem;
     private ArrayList<Ship>[] shipList; // Stores the ships e.g. [{Carrier}, {Battleship1, Battleship2}, ...]
 
     public Grid() {
