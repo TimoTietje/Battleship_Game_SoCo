@@ -23,17 +23,20 @@ public class Battleship_Game {
     public void playGame(){
         Random rand = new Random(); //we need rand to create random numbers
         boolean computerStarts = rand.nextBoolean();
+        boolean wasAHit = false;
         if(computerStarts){ // I inserted this block, in case the computer takes the first turn
             System.out.println("\nNow it's the computers turn.");
-            computerPlayer.shoot(theBoard.getComputerTargetGrid()); // Registers a new shot in the computer target grid
-            // We need a method that checks if a shot results in a ship being sunk
+            wasAHit = theBoard.checkIfShotWasAHit(computerPlayer.shoot(theBoard.getComputerTargetGrid()), theBoard.getComputerTargetGrid(), theBoard.getHumanOceanGrid()); // Registers a new shot in the computer target grid
+            if(wasAHit){
+                theBoard.upDateTargetGrid(theBoard.getHumanOceanGrid(), theBoard.getComputerTargetGrid());
+            }
             theBoard.printBoard();
         }
         while(true){    // This loop stops when a break statement is reached
             /* Checks if the last shot was a hit. If so it puts an 'X' in the target grid, else an "o".
             * The input parameter registers a new shot and returns its coordinate. */
             // Humans turn
-            Boolean wasAHit = theBoard.checkIfShotWasAHit(humanPlayer.shoot(theBoard.getHumanTargetGrid()), theBoard.getHumanTargetGrid(), theBoard.getComputerOceanGrid());
+            wasAHit = theBoard.checkIfShotWasAHit(humanPlayer.shoot(theBoard.getHumanTargetGrid()), theBoard.getHumanTargetGrid(), theBoard.getComputerOceanGrid());
             if(wasAHit){
                 /* Checks if a ship is sunk, if so it overwrites the 'X' symbols in
                  * target grid with capital letters and changes Ship.isSunk to true. */
@@ -46,8 +49,10 @@ public class Battleship_Game {
             }
             // Computers turn
             System.out.println("\nNow it's the computers turn.");
-            computerPlayer.shoot(theBoard.getComputerTargetGrid()); // Registers a new shot in the computer target grid
-            // We need a method that checks if a shot results in a ship being sunk
+            wasAHit = theBoard.checkIfShotWasAHit(computerPlayer.shoot(theBoard.getComputerTargetGrid()), theBoard.getComputerTargetGrid(), theBoard.getHumanOceanGrid()); // Registers a new shot in the computer target grid
+            if(wasAHit){
+                theBoard.upDateTargetGrid(theBoard.getHumanOceanGrid(), theBoard.getComputerTargetGrid());
+            }
             theBoard.printBoard();
             computerHitAllEnemyShips = theBoard.hitAllEnemyShips(theBoard.getHumanOceanGrid()); // Checks if the computer player hit all enemy ships.
             if(computerHitAllEnemyShips){

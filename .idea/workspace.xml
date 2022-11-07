@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="Delted Hello World">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/Battleship_GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/Battleship_GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Player.java" afterDir="false" />
+    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="computerShoot logic delted, test works now">
+      <change beforePath="$PROJECT_DIR$/src/main/Battleship_Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Battleship_Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +226,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667765127874</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Player shoot test und computerShoot (funktioniert nid)">
+      <created>1667806969920</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1667806969920</updated>
+    </task>
+    <task id="LOCAL-00024" summary="computerShoot logic delted, test works now">
+      <created>1667807139537</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1667807139537</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,7 +298,9 @@
     <MESSAGE value="Minor changes" />
     <MESSAGE value="shit works flawlessly" />
     <MESSAGE value="Delted Hello World" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delted Hello World" />
+    <MESSAGE value="Player shoot test und computerShoot (funktioniert nid)" />
+    <MESSAGE value="computerShoot logic delted, test works now" />
+    <option name="LAST_COMMIT_MESSAGE" value="computerShoot logic delted, test works now" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
