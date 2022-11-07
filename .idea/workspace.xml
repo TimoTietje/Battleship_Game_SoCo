@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="safe computerships in computer ocean grid">
+    <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="Delted Hello World">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test/Battleship_GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/Battleship_GameTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,7 +172,63 @@
       <option name="project" value="LOCAL" />
       <updated>1667663857861</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="computerShoot method and computerShootTest method seem to work">
+      <created>1667732963650</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1667732963650</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Battleship_Game.endGame method">
+      <created>1667741214591</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1667741214591</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Randomize which player starts the game">
+      <created>1667741855049</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1667741855049</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Two warnings resolved.">
+      <created>1667749664836</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1667749664836</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Deleted isCollision method, because unnecessary.">
+      <created>1667751458599</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1667751458599</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Minor changes">
+      <created>1667753582174</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1667753582174</updated>
+    </task>
+    <task id="LOCAL-00021" summary="shit works flawlessly">
+      <created>1667760741441</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1667760741441</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Delted Hello World">
+      <created>1667765127874</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1667765127874</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +243,17 @@
               <option name="CUSTOM_BOOLEAN_PROPERTIES">
                 <map>
                   <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
                 </map>
               </option>
             </State>
@@ -210,6 +278,25 @@
     <MESSAGE value="Board gets printed after setting ships" />
     <MESSAGE value="check if user gives in coordinates separated by comma (humansetships)" />
     <MESSAGE value="safe computerships in computer ocean grid" />
-    <option name="LAST_COMMIT_MESSAGE" value="safe computerships in computer ocean grid" />
+    <MESSAGE value="computerShoot method and computerShootTest method seem to work" />
+    <MESSAGE value="Battleship_Game.endGame method" />
+    <MESSAGE value="Randomize which player starts the game" />
+    <MESSAGE value="Two warnings resolved." />
+    <MESSAGE value="Deleted isCollision method, because unnecessary." />
+    <MESSAGE value="Minor changes" />
+    <MESSAGE value="shit works flawlessly" />
+    <MESSAGE value="Delted Hello World" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delted Hello World" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Board.java</url>
+          <line>143</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

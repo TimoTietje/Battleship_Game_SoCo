@@ -219,17 +219,21 @@ public class Player {
                     if(existingXSymbols.size() > 1){
                         int xLast = existingXSymbols.get(existingXSymbols.size()-1).getX(); // Stores the x coordinate of the rightmost 'X' symbol
                         // Check if the field to the left and to the right haven't been targeted yet.
-                        if(targetGrid.getCoordinateValue(y, x-1) == ' ' && targetGrid.getCoordinateValue(y, xLast) == ' '){
+                        if(is_Valid(y, x-1) && targetGrid.getCoordinateValue(y, x-1) == ' ' && is_Valid(y, xLast+1) && targetGrid.getCoordinateValue(y, xLast + 1) == ' '){
                             int pos = rand.nextInt(2);
                             if(pos == 0){   // If pos == 0, shoot to the left of our 'X' symbols
                                 shot = new Coordinate(x-1, y);
                             }else { // If pos == 1, shoot to the right of the right most 'X' symbol
                                 shot = new Coordinate(xLast+1, y);
                             }
-                        } else if (targetGrid.getCoordinateValue(y, x-1) == ' ') {  // Only the field on the left of our 'X' symbols is free
+                        } else if (is_Valid(y, x-1) && targetGrid.getCoordinateValue(y, x-1) == ' ') {  // Only the field on the left of our 'X' symbols is free
                             shot = new Coordinate(x-1, y);
-                        }else{  // Only the field to the right of our 'X' block is free
+                        }else if(is_Valid(y, xLast + 1) && targetGrid.getCoordinateValue(y, xLast + 1) == ' '){  // Only the field to the right of our 'X' block is free
                             shot = new Coordinate(xLast+1, y);
+                        } else if (is_Valid(y+1, x) && targetGrid.getCoordinateValue(y+1, x) == ' ') {
+                            shot = new Coordinate((y+1), x);
+                        }else{
+                            shot = new Coordinate(y-1, x);
                         }
                         return shot;
                     }
@@ -243,17 +247,21 @@ public class Player {
                     if(existingXSymbols.size() > 1){
                         int yLast = existingXSymbols.get(existingXSymbols.size()-1).getY(); // Stores the x coordinate of the rightmost 'X' symbol
                         // Check if the field above and below haven't been targeted yet. There would be an "o".
-                        if(targetGrid.getCoordinateValue(y-1, x) == ' ' && targetGrid.getCoordinateValue(yLast+1, x) == ' '){
+                        if(is_Valid(y-1, x) && targetGrid.getCoordinateValue(y-1, x) == ' ' && is_Valid(yLast+1, x) && targetGrid.getCoordinateValue(yLast+1, x) == ' '){
                             int pos = rand.nextInt(2);
                             if(pos == 0){   // If pos == 0, shoot above our 'X' symbols
                                 shot = new Coordinate(x, y-1);
                             }else { // If pos == 1, shoot below our 'X' symbols
                                 shot = new Coordinate(x, yLast+1);
                             }
-                        } else if (targetGrid.getCoordinateValue(y-1, x) == ' ') {  // Only the field above our 'X' symbols is free
+                        } else if (is_Valid(y-1, x) && targetGrid.getCoordinateValue(y-1, x) == ' ') {  // Only the field above our 'X' symbols is free
                             shot = new Coordinate(x, y-1);
-                        }else{  // Only the field below our 'X' block is free
+                        }else if(is_Valid(yLast+1, x) && targetGrid.getCoordinateValue(yLast+1, x) == ' '){  // Only the field below our 'X' block is free
                             shot = new Coordinate(x, yLast+1);
+                        }else if(is_Valid(y, x+1) && targetGrid.getCoordinateValue(y, x+1) == ' '){
+                            shot = new Coordinate(x+1, y);
+                        }else{
+                            shot = new Coordinate(x-1, y);
                         }
                         return shot;
                     }
