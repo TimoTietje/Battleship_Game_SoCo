@@ -34,7 +34,8 @@ public class Grid {
         return shipList;
     }
 
-    // Save the ships from the shipList in the grid aka overwrite the grid
+    /* Save the ships from the shipList in the grid aka overwrite the grid.
+    * @pre 0 <= start, end < 10 and there must be no collision. */
     public void setShip(Coordinate start, Coordinate end, int shipType){ //shipType: 1 = C, 2= B, 3= S ...
         char[] shipTypeName = new char[]{'C', 'B', 'S', 'P'}; // Trage diese Symbole ins Grid ein C-Carrier, B-Battleship, S-Submarine, P-Patrol Boat
         for(int x = start.getX(); x <= end.getX(); x++){    //
