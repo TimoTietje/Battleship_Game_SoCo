@@ -60,10 +60,10 @@ public class Battleship_Game {
                 theBoard.upDateTargetGrid(theBoard.getHumanOceanGrid(), theBoard.getComputerTargetGrid());
                 theBoard.reportHit(lastShot, theBoard.getHumanOceanGrid()); // Report hit to humanOceanGrid
                 System.out.println("The computer hit one of your ships.");
+                theBoard.printBoard();
             }else{
                 System.out.println("The computer missed.");
             }
-            theBoard.printBoard();
             computerHitAllEnemyShips = theBoard.hitAllEnemyShips(theBoard.getHumanOceanGrid()); // Checks if the computer player hit all enemy ships.
             if(computerHitAllEnemyShips){
                 endGame(computerPlayer);
