@@ -4,10 +4,10 @@ import java.util.List;
 
 public class Ship {
     private shipClass shipType;
-    private int length;
+    private final int length;
     private boolean isSunk;
-    private Coordinate startCoordinate;
-    private Coordinate endCoordinate;
+    private final Coordinate startCoordinate;
+    private final Coordinate endCoordinate;
     private List<Coordinate> coordinateList;
     enum shipClass{
         CARRIER, BATTLESHIP, SUBMARINE, PATROL_BOAT

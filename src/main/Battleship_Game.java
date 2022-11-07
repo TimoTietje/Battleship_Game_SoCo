@@ -1,9 +1,9 @@
 import java.util.Random;
 
 public class Battleship_Game {
-    private  Board theBoard;
-    private Player humanPlayer;
-    private Player computerPlayer;
+    private final Board theBoard;
+    private final Player humanPlayer;
+    private final Player computerPlayer;
     private Boolean humanHitAllEnemyShips;
     private Boolean computerHitAllEnemyShips;
     public Battleship_Game() {
