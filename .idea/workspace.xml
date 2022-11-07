@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="339f3a5d-403f-4ab4-bc97-8882d8ab07ab" name="Changes" comment="Reduce printBoard">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Grid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Coordinate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -326,5 +325,16 @@
     <MESSAGE value="Shit runs smooth as butter" />
     <MESSAGE value="Reduce printBoard" />
     <option name="LAST_COMMIT_MESSAGE" value="Reduce printBoard" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Player.java</url>
+          <line>107</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

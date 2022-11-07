@@ -55,7 +55,6 @@ public class Player {
                     }
                 }
             }
-
             if (check && freePlace) {
                 shipList[index].add(new Ship(start.getX(),start.getY(), end.getX(), end.getY()));
                 aGrid.setShip(start,end,index);
