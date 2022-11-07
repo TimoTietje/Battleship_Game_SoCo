@@ -56,24 +56,6 @@ public class Ship {
         return coordinateList;
     }
 
-    /* check if shot is a hit */
-    public boolean isShipHit(Ship ship, Coordinate shot){
-        if (ship.coordinateList.contains(shot)){
-            ship.coordinateList.remove(shot);
-            return true;
-            /* !!!if true is returned, check if ship has been sunk!!! */
-        }
-        return false;
-    }
-
-    /* to check after hit if ship is destroyed and change status */
-    public boolean ship_status(Ship ship){
-        if (ship.coordinateList.size() == 0){
-            ship.isSunk = true;
-        }
-        return ship.isSunk;
-    }
-
     public List<Coordinate> getCoordinateList() {
         return coordinateList;
     }
