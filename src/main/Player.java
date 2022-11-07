@@ -15,7 +15,7 @@ public class Player {
         }
     }
     //pre: line,col,directions, length are of type integer
-    //post: ship position is valid or not
+    //post: given coordinate is on the grid
     private boolean is_Valid(int line, int col){
         //test if position (line, col) is on grid 0 <= col,line < 10
         return (0 <= col && col < 10 && 0 <= line && line < 10);
